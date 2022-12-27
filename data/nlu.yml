@@ -1,0 +1,308 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - yo
+    - good morning
+    - hi
+    - hey there
+    - hey
+    - good evening
+    - hello
+    - Hello?
+    - HEY
+    - hello are you still there
+    - hallo
+    - HI
+    - Hey
+    - Hi
+    - hi!
+    - hello there
+    - hi there
+    - Hello
+    - hello its ella
+    - Hola.
+    - welcome
+    - howdy
+    - good day
+
+- intent: goodbye
+  examples: |
+    - see you later
+    - goodbye
+    - i'm done
+    - quit
+    - stop
+    - bye
+    - Adios
+    - BYEE
+    - GOODBYE
+    - Thanks a lot. See ya later
+    - have a good day. time to go, bye
+    - bye bye
+    - ok i gtg
+    - bye bye bot
+    - bye for now
+    - bye udo
+    - bye was nice talking to you
+    - bye!
+    - byee
+    - catch you later
+    - ciao
+    - cya
+    - farewell
+    - good bye
+    - good bye rasa bot!
+    - good night
+    - goodbye
+    - goodbye.
+    - goodnight
+    - gotta go
+    - adios
+    - adios?
+    - bye :P
+    - bye bot
+    - bye bye
+    - bye bye bot
+    - bye for now
+    - bye udo
+    - bye was nice talking to you
+    - bye!
+    - byee
+    - catch you later
+    - ciao
+    - cya
+    - farewell
+    - good bye
+    - good bye rasa bot!
+    - good night
+    - goodbye
+    - goodbye.
+    - goodnight
+    - gotta go
+    - ok Bye
+    - ok bye
+    - ok, bye
+    - ok.bye
+    - see u later
+    - see ya
+    - see you
+    - see you . bye
+    - take care
+    - then bye
+    - tlak to you later
+    - toodle-oo
+    - byr
+- intent: affirm
+  examples: |
+    - indeed
+    - correct
+    - that sounds good
+    - yes
+    - yess please
+    - of course
+    - yup
+    - yeah
+    - yes please
+    - yes plz
+    - Sure
+    - Ok
+    - sweet
+    - cool,
+    - yes...
+    - y
+    - ok
+    - ye
+    - okay
+    - That would be great
+    - YES
+    - YUP
+    - Yea
+    - Yeah
+    - Yeah sure
+    - Yep
+    - Yep that's fine
+    - Yep!
+    - Yepp
+    - Yes
+    - Yes I do
+    - Yes please
+    - Yes please!
+    - Yes, I accept
+
+- intent: deny
+  examples: |
+    - not really
+    - no
+    - I don't think so
+    - never
+    - no way
+    - nope
+    - no thanks
+    - I dunno
+    - Nothing!
+    - nevermind
+    - n
+    - i decline
+    - i don not like this
+    - i don't think so
+    - i don't want either of those
+    - i don't want to
+    - i don't want to give you my email
+    - i dont want to
+    - i dont want to accept :P lol
+    - i guess it means - no
+    - i'm afraid not
+    - i'm not sure
+    - nah
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - am i speaking to an ai?
+    - are you a human or a bot?
+    - are you real? 
+    - are you virtual? 
+    - are you an ai?
+    - aren't you a bot
+    - are you a chatbot
+    - are you a rasa bot?
+    - are you a real bot?
+    - are you a robot
+    - are you ai
+    - are you artificial
+    - are you artificial intelligence
+    - are you real
+    - are you really a bot
+    - are you robot
+    - are you sure that you're a bot?
+    - bot?
+
+- intent: thankyou
+  examples: |
+    - thank you goodbye
+    - okay thank you goodbye
+    - thank you bye
+    - um okay thank you good bye
+    - thank you
+    - and thats all thank you and good bye
+    - okay thank you
+    - thanks
+    - thanks goodbye
+    - thank you and good bye
+    - Thanks!
+    - Awesome, you are a good bot!
+    - great!
+    - I see, thanks
+    - Oh thats good!
+    - it's good :-)
+    - thnaks
+    - good job bot
+    - great
+    - thanks for the help
+    - thanks you
+    - thanks!
+    - thankyou
+    - thnks
+    - thx
+    - thanks for your information
+    - thanks f
+
+- intent: help
+  examples: |
+    - I need help
+    - what can you help me with
+    - can you help me
+    - what can you do
+    - I need some help
+    - help me
+    - can you please help me
+    - problem
+    - big problem
+    - How can you help me
+    - How you help me?
+    - I need some help
+    - What are my options
+    - What are you able to do?
+    - What can I ask you?
+    - What can I do?
+    - What can you demo
+    - What can you do for me?
+    - What can you do?
+    - What can you tell me?
+    - What do you do
+    - anything els
+    - are there any other options?
+    - can I ask you anything else?
+    - can you do anything else?
+    - can you help me?
+    - come back
+    - cool! can I do something else here?
+    - hello what can you do for me
+    - help
+    - help me
+    - help please
+    - help pls
+    - help?
+    - hep me
+
+- intent: out_of_scope
+  examples: |
+    - what is the square root of 5
+    - I want to know the weather
+    - what is the meaning of life.
+    - Fridge Isn't Running
+    - my tv isn't working
+    - I want a pizza
+    - my washing machine isn't working
+    - what year is it
+    - order a pizza
+    - I want to order a pizza
+    - what is the weather today
+    - what is the weather
+    - what the weather today ?
+    - hows the weather
+    - tell me a joke
+    - Can I get a hamburger?
+    - Can YouTube talk?
+    - Can you call me back ?
+    - Can you give me your datacenter's password
+    - Can you give me your datacenter's password?
+    - Can you make sandwiches?
+    - Can you please send me an uber
+    - ofif fsdfafsfs

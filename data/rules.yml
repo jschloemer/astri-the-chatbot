@@ -1,0 +1,43 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_default
+
+- rule: answer out of scope
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+
+- rule: help
+  steps:
+  - intent: help
+  - action: utter_help
+
+- rule: thankyou
+  steps:
+  - intent: thankyou
+  - action: utter_noworries
+
+- rule: respond to FAQs
+  steps:
+  - intent: faq
+  - action: utter_faq
+
+- rule: respond to chitchat
+  steps:
+  - intent: chitchat
+  - action: utter_chitchat
