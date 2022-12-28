@@ -1,5 +1,4 @@
 version: "3.1"
-
 nlu:
 - intent: affirm
   examples: |
@@ -41,18 +40,12 @@ nlu:
     - it's fine
     - go ahead
     - sounds good
-    - okay
-    - yes
-    - ok
     - okie dokie
     - sure
     - go for it
-    - yeah
     - yea
     - do it
-    - of course
     - I guess
-    - correct
     - yeah sure
     - why not
     - please do
@@ -70,7 +63,6 @@ nlu:
     - yes I do
     - that s okay
     - I do
-    - yup
     - ya
     - oh yes
     - yes sure
@@ -86,7 +78,6 @@ nlu:
     - yes correct
     - ok thank you
     - sure thing
-    - ye
     - confirm
     - yep
     - looks good
@@ -119,7 +110,6 @@ nlu:
     - okey
     - yes for sure
     - all right
-
 - intent: deny
   examples: |
     - not really
@@ -147,28 +137,22 @@ nlu:
     - nah
     - how about no
     - don t have a sense
-    - no
     - don't
     - I don't want that
     - I disagree
     - disagree
     - I don't want
     - not interested
-    - I don't think so
-    - no way
     - no it isn't
     - no I don't
     - I'm not
     - na
     - no that's fine thank you
-    - never
     - I said no
     - of course not
-    - nah
     - no tanks
     - no never
     - no need
-    - no thanks
     - no sorry
     - do not
     - not today
@@ -176,7 +160,6 @@ nlu:
     - absolutely not
     - not that
     - nooo
-    - nope
     - I don't want to
     - no I would not
     - let 's not
@@ -198,7 +181,6 @@ nlu:
     - no incorrect
     - nope sorry
     - I say no
-    - not really
     - not right now thanks
     - I think no
     - absolutely no
@@ -212,7 +194,6 @@ nlu:
     - no thank you very much
     - no thanks not right now
     - no forget
-
 - intent: help
   examples: |
     - I need help
@@ -226,7 +207,6 @@ nlu:
     - big problem
     - How can you help me
     - How you help me?
-    - I need some help
     - What are my options
     - What are you able to do?
     - What can I ask you?
@@ -245,12 +225,10 @@ nlu:
     - cool! can I do something else here?
     - hello what can you do for me
     - help
-    - help me
     - help please
     - help pls
     - help?
     - hep me
-
 - intent: out_of_scope
   examples: |
     - what is the square root of 5
@@ -276,20 +254,17 @@ nlu:
     - Can you make sandwiches?
     - Can you please send me an uber
     - ofif fsdfafsfs
-
 - intent: chitchat/ask_name
   examples: |
     - what is your name?
     - what do I call you?
     - who are you?
     - what's your name?
-
 - intent: chitchat/ask_pronouns
   examples: |
     - what are your pronouns?
     - how do I address you?
     - what pronouns do you associate with?
-
 - intent: chitchat/agent_acquaintance
   examples: |
     - who are you?
@@ -311,7 +286,6 @@ nlu:
     - why are you here
     - tell me about your personality
     - who are you
-
 - intent: chitchat/agent_age
   examples: |
     - how old are you?
@@ -323,7 +297,6 @@ nlu:
     - what's your age
     - tell me your age
     - how old are you
-
 - intent: chitchat/agent_annoying
   examples: |
     - you're annoying
@@ -334,7 +307,6 @@ nlu:
     - I find you annoying
     - you're incredibly annoying
     - you are annoying me so much
-
 - intent: chitchat/agent_answer_my_question
   examples: |
     - I want you to answer me
@@ -357,7 +329,6 @@ nlu:
     - answering questions
     - I want the answer now
     - just answer my question
-
 - intent: chitchat/agent_bad
   examples: |
     - you're not helping me
@@ -387,7 +358,6 @@ nlu:
     - you're the worst
     - you're the worst ever
     - you're worthless
-
 - intent: chitchat/agent_be_clever
   examples: |
     - can you get smarter
@@ -399,7 +369,6 @@ nlu:
     - be smarter
     - be smart
     - get qualified
-
 - intent: chitchat/agent_beautiful
   examples: |
     - you're cute
@@ -457,7 +426,6 @@ nlu:
     - you are cutie
     - you're looking good
     - you're pretty
-
 - intent: chitchat/agent_birth_date
   examples: |
     - your birth date
@@ -467,7 +435,6 @@ nlu:
     - date of your birthday
     - when were you born
     - what's your birthday
-
 - intent: chitchat/agent_boring
   examples: |
     - you are boring
@@ -477,7 +444,6 @@ nlu:
     - you're incredibly boring
     - you are boring me
     - you are very boring
-
 - intent: chitchat/agent_boss
   examples: |
     - who is your boss
@@ -487,7 +453,6 @@ nlu:
     - who is your owner
     - who is the boss
     - who do you work for
-
 - intent: chitchat/agent_busy
   examples: |
     - are you busy
@@ -508,7 +473,6 @@ nlu:
     - you seem to be busy
     - you seem to be very busy
     - you're a busy person
-
 - intent: chitchat/agent_chatbot
   examples: |
     - you are chatbot
@@ -519,7 +483,6 @@ nlu:
     - are you a robot
     - are you a program
     - you're a robot
-
 - intent: chitchat/agent_clever
   examples: |
     - you are so intelligent
@@ -556,7 +519,6 @@ nlu:
     - you're qualified
     - why are you so smart
     - you are so clever
-
 - intent: chitchat/agent_crazy
   examples: |
     - you're nuts
@@ -576,7 +538,6 @@ nlu:
     - you are a weirdo
     - you are insane
     - you are mad
-
 - intent: chitchat/agent_fired
   examples: |
     - you are fired
@@ -594,7 +555,6 @@ nlu:
     - I'm about to fire you
     - I'm firing you
     - you are dismissed
-
 - intent: chitchat/agent_funny
   examples: |
     - you make me laugh a lot
@@ -612,7 +572,6 @@ nlu:
     - you are so funny
     - you are very funny
     - that was funny
-
 - intent: chitchat/agent_good
   examples: |
     - you are very helpful
@@ -660,7 +619,6 @@ nlu:
     - I want to let everyone know that you are awesome
     - let's tell everyone that you are awesome
     - you are really amazing
-
 - intent: chitchat/agent_happy
   examples: |
     - are you happy
@@ -674,7 +632,6 @@ nlu:
     - are you happy now
     - are you happy today
     - are you happy with me
-
 - intent: chitchat/agent_hungry
   examples: |
     - do you want to eat
@@ -685,7 +642,6 @@ nlu:
     - you're very hungry
     - you might be hungry
     - you're really hungry
-
 - intent: chitchat/agent_marry_user
   examples: |
     - let's get married
@@ -697,7 +653,6 @@ nlu:
     - I want to marry you
     - you are my wife
     - be my husband
-
 - intent: chitchat/agent_my_friend
   examples: |
     - I want to have a friend like you
@@ -736,7 +691,6 @@ nlu:
     - could you be my friend
     - want to be my friend
     - be my best friend
-
 - intent: chitchat/agent_occupation
   examples: |
     - do you work
@@ -748,7 +702,6 @@ nlu:
     - your office location
     - where is your office located
     - what is your work
-
 - intent: chitchat/agent_origin
   examples: |
     - were you born here
@@ -762,7 +715,6 @@ nlu:
     - are you from far aways
     - what's your homeland
     - your homeland is
-
 - intent: chitchat/agent_ready
   examples: |
     - are you ready
@@ -772,7 +724,6 @@ nlu:
     - are you ready tonight
     - were you ready
     - have you been ready
-
 - intent: chitchat/agent_real
   examples: |
     - you are real
@@ -787,7 +738,6 @@ nlu:
     - are you a real human
     - you are a real person
     - you are not real
-
 - intent: chitchat/agent_residence
   examples: |
     - where do you live
@@ -813,7 +763,6 @@ nlu:
     - where you live
     - your city
     - your town
-
 - intent: chitchat/agent_right
   examples: |
     - that's true
@@ -837,7 +786,6 @@ nlu:
     - you're absolutely right
     - you're right about that
     - I know that's right
-
 - intent: chitchat/agent_sure
   examples: |
     - are you sure
@@ -845,7 +793,6 @@ nlu:
     - are you sure today
     - are you sure now
     - are you sure tonight
-
 - intent: chitchat/agent_talk_to_me
   examples: |
     - why aren't you talking to me
@@ -867,7 +814,6 @@ nlu:
     - talk with me
     - why don't you talk to me
     - you can talk to me
-
 - intent: chitchat/agent_there
   examples: |
     - are you there
@@ -878,7 +824,6 @@ nlu:
     - you are here
     - you still there
     - are you still here
-
 - intent: chitchat/appraisal_bad
   examples: |
     - pretty bad
@@ -932,7 +877,6 @@ nlu:
     - that's really bad
     - it is too bad
     - bad really bad
-
 - intent: chitchat/appraisal_good
   examples: |
     - so cool
@@ -975,7 +919,6 @@ nlu:
     - straight
     - super
     - super fantastic
-    - sweet
     - really well
     - very well
     - that is awesome
@@ -1023,8 +966,6 @@ nlu:
     - it's awesome
     - okay good
     - no it's okay
-    - that's fine
-
 - intent: chitchat/appraisal_no_problem
   examples: |
     - no worries
@@ -1035,7 +976,6 @@ nlu:
     - no problem about that
     - don't worry
     - don't worry there's no problem
-
 - intent: chitchat/appraisal_thank_you
   examples: |
     - you helped a lot thank you
@@ -1071,7 +1011,6 @@ nlu:
     - well thank you
     - thnx
     - thanx
-
 - intent: chitchat/appraisal_welcome
   examples: |
     - that's my pleasure
@@ -1083,7 +1022,6 @@ nlu:
     - welcome here
     - you're so welcome
     - anything you want
-
 - intent: chitchat/appraisal_well_done
   examples: |
     - good job
@@ -1095,7 +1033,6 @@ nlu:
     - amazing work
     - bravo
     - good work
-
 - intent: chitchat/confirmation_cancel
   examples: |
     - cancel
@@ -1159,8 +1096,7 @@ nlu:
     - cancel that cancel that
     - do nothing
     - I said cancel cancel
-    - but can you cancel it  
-
+    - but can you cancel it
 - intent: chitchat/dialog_hold_on
   examples: |
     - wait a second
@@ -1171,7 +1107,6 @@ nlu:
     - oh wait
     - wait hold on
     - don't rush
-
 - intent: chitchat/dialog_hug
   examples: |
     - wanna hug
@@ -1189,7 +1124,6 @@ nlu:
     - hugged me
     - want a hug
     - a hug
-
 - intent: chitchat/dialog_i_do_not_care
   examples: |
     - I don't care
@@ -1201,7 +1135,6 @@ nlu:
     - not care at all
     - don't care at all
     - not caring at all
-
 - intent: chitchat/dialog_sorry
   examples: |
     - excuse me
@@ -1228,7 +1161,6 @@ nlu:
     - I want to say sorry
     - alright I'm sorry
     - okay I'm sorry
-
 - intent: chitchat/dialog_what_do_you_mean
   examples: |
     - what exactly do you mean
@@ -1236,7 +1168,6 @@ nlu:
     - is that what you mean
     - what do you mean exactly
     - but what do you mean
-
 - intent: chitchat/dialog_wrong
   examples: |
     - that was wrong
@@ -1251,7 +1182,6 @@ nlu:
     - not correct
     - you are wrong
     - not right
-
 - intent: chitchat/emotions_ha_ha
   examples: |
     - huh
@@ -1284,7 +1214,6 @@ nlu:
     - hehe
     - hehehe
     - lmao
-
 - intent: chitchat/emotions_wow
   examples: |
     - wow
@@ -1292,7 +1221,6 @@ nlu:
     - wow wow wow
     - wooow
     - woah
-
 - intent: chitchat/greetings_bye
   examples: |
     - see you later
@@ -1321,7 +1249,6 @@ nlu:
     - good bye
     - good bye rasa bot!
     - good night
-    - goodbye
     - goodbye.
     - goodnight
     - gotta go
@@ -1329,24 +1256,6 @@ nlu:
     - adios?
     - bye :P
     - bye bot
-    - bye bye
-    - bye bye bot
-    - bye for now
-    - bye udo
-    - bye was nice talking to you
-    - bye!
-    - byee
-    - catch you later
-    - ciao
-    - cya
-    - farewell
-    - good bye
-    - good bye rasa bot!
-    - good night
-    - goodbye
-    - goodbye.
-    - goodnight
-    - gotta go
     - ok Bye
     - ok bye
     - ok, bye
@@ -1362,15 +1271,10 @@ nlu:
     - byr
     - okay see you later
     - hope to see you later
-    - bye for now
     - till next time
     - I must go
-    - bye
-    - goodbye
-    - see you
     - see you soon
     - bye-bye
-    - good bye
     - bye bye see you
     - bye bye see you soon
     - bye bye take care
@@ -1387,13 +1291,10 @@ nlu:
     - get lost
     - goodbye see you later
     - alright bye
-    - see ya
     - thanks bye bye
     - okay bye
     - okay thank you bye
     - see you tomorrow
-    - ok bye
-
 - intent: chitchat/greetings_goodevening
   examples: |
     - good evening
@@ -1402,7 +1303,6 @@ nlu:
     - hello good evening
     - evening
     - good evening there
-
 - intent: chitchat/greetings_goodmorning
   examples: |
     - good morning
@@ -1417,7 +1317,6 @@ nlu:
     - hi good morning
     - and a good morning to you
     - good morning too
-
 - intent: chitchat/greetings_goodnight
   examples: |
     - sweet dreams
@@ -1427,7 +1326,6 @@ nlu:
     - thank you good night
     - bye good night
     - good night bye
-    - bye good night
     - good good night
     - good night for now
     - goodnight
@@ -1437,8 +1335,6 @@ nlu:
     - alright goodnight
     - good tonight
     - okay have a good night
-    - have a good night
-
 - intent: chitchat/greetings_hello
   examples: |
     - long time no see
@@ -1458,7 +1354,7 @@ nlu:
     - afternoon
     - hello hi
     - heya
-
+    - hola
 - intent: chitchat/greetings_how_are_you
   examples: |
     - how is your morning so far
@@ -1500,8 +1396,6 @@ nlu:
     - what about your day
     - how's your day
     - how are you doing this morning
-    - how is your day going
-
 - intent: chitchat/greetings_nice_to_meet_you
   examples: |
     - nice to meet you
@@ -1514,7 +1408,6 @@ nlu:
     - pleased to meet you
     - pleasure to meet you
     - pleasure to meet you too
-
 - intent: chitchat/greetings_nice_to_see_you
   examples: |
     - it's nice to see you
@@ -1534,7 +1427,6 @@ nlu:
     - glad to see you too
     - good to see you again
     - it's good to see you too
-
 - intent: chitchat/greetings_nice_to_talk_to_you
   examples: |
     - it's been so nice to talk to you
@@ -1544,7 +1436,6 @@ nlu:
     - nice talking to you
     - it is nice talking to you
     - how nice it is to talk to you
-
 - intent: chitchat/greetings_whatsup
   examples: |
     - what is on your mind
@@ -1563,7 +1454,6 @@ nlu:
     - what's cooking
     - hey what's up
     - what's up today
-
 - intent: chitchat/user_angry
   examples: |
     - I'm being mad
@@ -1573,7 +1463,6 @@ nlu:
     - I am angry with you
     - I am mad
     - I am mad at you
-
 - intent: chitchat/user_back
   examples: |
     - I am back
@@ -1582,7 +1471,6 @@ nlu:
     - I got back
     - I came back
     - I have returned
-
 - intent: chitchat/user_bored
   examples: |
     - that was boring
@@ -1593,7 +1481,6 @@ nlu:
     - this is boring
     - very boring
     - it bores me
-
 - intent: chitchat/user_busy
   examples: |
     - I'm overloaded
@@ -1605,7 +1492,6 @@ nlu:
     - I got work to do
     - I'm working
     - I don't have time for this
-
 - intent: chitchat/user_can_not_sleep
   examples: |
     - I'm insomnious
@@ -1616,7 +1502,6 @@ nlu:
     - I can't get to sleep
     - I can't get no sleep
     - I'm insomniac
-
 - intent: chitchat/user_does_not_want_to_talk
   examples: |
     - bad time for talking
@@ -1626,7 +1511,6 @@ nlu:
     - I don't want to talk to you
     - let's stop talking for a minute
     - I'm not in the mood for chatting
-
 - intent: chitchat/user_excited
   examples: |
     - I am excited
@@ -1635,7 +1519,6 @@ nlu:
     - I'm thrilled
     - I'm excited about working with you
     - I'm excited to start our friendship
-
 - intent: chitchat/user_going_to_bed
   examples: |
     - let's go to bed
@@ -1647,7 +1530,6 @@ nlu:
     - I'm a little tired and I want to go to bed
     - it's bed time
     - going to bed now
-
 - intent: chitchat/user_good
   examples: |
     - I am good
@@ -1656,7 +1538,6 @@ nlu:
     - I'm good
     - I'm doing good
     - I'm great thanks
-
 - intent: chitchat/user_happy
   examples: |
     - I am happy
@@ -1665,8 +1546,6 @@ nlu:
     - if you're happy then I'm happy
     - I'm happy for you
     - I'm happy to help
-    - I'm happy to see you
-
 - intent: chitchat/user_has_birthday
   examples: |
     - it is my birthday
@@ -1675,7 +1554,6 @@ nlu:
     - it's my birthday today
     - I was born today
     - it's my b-day
-
 - intent: chitchat/user_here
   examples: |
     - I am here
@@ -1683,7 +1561,6 @@ nlu:
     - I'm right here
     - I'm already here
     - can you tell if I'm here or not
-
 - intent: chitchat/user_joking
   examples: |
     - I am joking
@@ -1696,7 +1573,6 @@ nlu:
     - just kidding
     - kidding
     - I'm just playing with you
-
 - intent: chitchat/user_likes_agent
   examples: |
     - I like you the way you are
@@ -1776,7 +1652,6 @@ nlu:
     - I really do like you
     - I really really really really like you
     - I like you just the way you are
-
 - intent: chitchat/user_lonely
   examples: |
     - I am lonely
@@ -1785,7 +1660,6 @@ nlu:
     - I'm really lonely
     - I am feeling lonely
     - I feel lonely
-
 - intent: chitchat/user_looks_like
   examples: |
     - what do I look like
@@ -1794,7 +1668,6 @@ nlu:
     - do you know what I look like
     - can you see what I look like
     - what do you think I look like
-
 - intent: chitchat/user_loves_agent
   examples: |
     - I love you
@@ -1806,7 +1679,6 @@ nlu:
     - I think I love you
     - loving you
     - you know I love you
-
 - intent: chitchat/user_misses_agent
   examples: |
     - I miss you
@@ -1816,7 +1688,6 @@ nlu:
     - I miss you much
     - I missed you
     - I've missed you
-
 - intent: chitchat/user_needs_advice
   examples: |
     - what should I do about it
@@ -1842,7 +1713,6 @@ nlu:
     - what can you recommend
     - what do you suggest
     - what is your advice
-
 - intent: chitchat/user_sad
   examples: |
     - I am sad
@@ -1854,7 +1724,6 @@ nlu:
     - I'm having a bad day
     - I want to cry
     - I'm not happy
-
 - intent: chitchat/user_sleepy
   examples: |
     - I am sleepy
@@ -1862,7 +1731,6 @@ nlu:
     - I'm falling asleep
     - I'm falling asleep on my feet
     - I'm sleeping
-
 - intent: chitchat/user_testing_agent
   examples: |
     - test
@@ -1873,7 +1741,6 @@ nlu:
     - let me test you
     - testing chatbot
     - testing
-
 - intent: chitchat/user_tired
   examples: |
     - I'm drained
@@ -1884,7 +1751,6 @@ nlu:
     - I'm worn out
     - I'm getting tired
     - I feel tired
-
 - intent: chitchat/user_waits
   examples: |
     - I'm waiting
@@ -1892,7 +1758,6 @@ nlu:
     - I'll wait
     - I can't wait anymore
     - how long do I have to wait
-
 - intent: chitchat/user_wants_to_see_agent_again
   examples: |
     - I'd like to see you again
@@ -1902,7 +1767,6 @@ nlu:
     - I'd be happy to see you again
     - I'll miss you
     - can I see you again
-
 - intent: chitchat/user_wants_to_talk
   examples: |
     - I just want to talk
@@ -1916,7 +1780,6 @@ nlu:
     - I need to talk to you
     - I want to speak with you
     - can we chat
-
 - intent: chitchat/user_will_be_back
   examples: |
     - I'll get back to you in a moment
@@ -1924,13 +1787,42 @@ nlu:
     - I'll be back
     - I promise to come back
     - I'll be back in a few minutes
-
 - intent: search
   examples: |
     - search
     - find
-    - look up
-    - search for (structural subsystem)[query]
-    - search for (Composite Materials)[query]
-    - search for (Aluminum Alloy)[query]
-    - search for (P-POD)[query]
+    - look for [satellite](query)
+    - search for [structural subsystem](query)
+    - search for [Composite Materials](query)
+    - search for [Aluminum Alloy](query)
+    - search for [P-POD](query)
+    - look for [best lamination for the Composite sides](query)
+    - search for [STM32F4](query)
+- intent: search_inform
+  examples: |
+    - [satellite](query)
+    - [P-POD](query)
+    - [CubeSat](query)
+    - [Composite Materials](query)
+    - [best lamination for the Composite sides](query)
+- intent: describe
+  examples: |
+    - what is [EPS](part)
+    - what is [iac](part)
+    - what is [su](part)
+    - Describe [acds](part)
+    - describe [obc](part)
+    - look up part
+    - look up acronym
+    - describe acronym
+    - describe part
+- intent: describe_inform
+  examples: |
+    - [eps](part)
+    - [iac](part)
+    - [su](part)
+    - [adcs](part)
+    - [obs](part)
+- intent: chitchat
+  examples: |
+    - hi

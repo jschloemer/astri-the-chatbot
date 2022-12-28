@@ -28,3 +28,21 @@ stories:
 #   - action: utter_did_that_help
 #   - intent: deny
 #   - action: utter_goodbye
+
+- story: interactive_story_zz
+  steps:
+  - intent: chitchat
+  - action: utter_chitchat
+  - intent: search
+    entities:
+    - query: STM32F4
+  - action: action_perform_search
+  - action: action_reset_search_slot
+
+- story: part_story
+  steps:
+  - intent: describe
+    entities:
+    - query: adcs
+  - action: action_lookup_part
+  - action: action_reset_part_slot

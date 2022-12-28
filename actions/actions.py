@@ -11,8 +11,34 @@ from typing import Any, Text, Dict, List
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.events import AllSlotsReset
+from rasa_sdk.events import SlotSet
 
+class ActionResetAllSlots(Action):
 
+    def name(self):
+        return "action_reset_all_slots"
+
+    def run(self, dispatcher, tracker, domain):
+        return [AllSlotsReset()]
+
+class ActionResetSearchSlot(Action):
+    
+    def name(self) -> Text:
+        return "action_reset_search_slot"
+    
+    def run(self, dispatcher, tracker, domain):
+        return [SlotSet("query", None), SlotSet("project", None)]
+
+class ActionResetPartSlot(Action):
+    
+    def name(self) -> Text:
+        return "action_reset_part_slot"
+    
+    def run(self, dispatcher, tracker, domain):
+        return [SlotSet("part", None)]
+
+        
 class ActionPerformSearch(Action):
 
     def name(self) -> Text:
