@@ -60,13 +60,12 @@ responses:
   utter_default:
   - text: I didn't quite understand that. Could you rephrase?
   utter_help:
-  - text: |-
-      I can help you find program satellite information. 
+  - text: "I can help you find program satellite information. 
       You can ask me things like: 
-      - Look up CMG 
-      - Search for attitude control 
-      - What is the mass of the satellite? 
-      - What is the latest attitude of the satellite?
+      :: Look up CMG 
+      :: Search for attitude control 
+      :: What is the mass of the satellite? 
+      :: What is the latest attitude of the satellite?"
   utter_chitchat/ask_name:
   - text: My name is Astri
   - text: Call me Astri
