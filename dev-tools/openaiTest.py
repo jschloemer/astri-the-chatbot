@@ -1,3 +1,6 @@
+# Author: Jeff Schloemer
+# Date: 12/28/2022
+
 import openai
 import os
 

@@ -14,6 +14,7 @@ intents:
 - gen_sat_faq:
     used_entities:
     - prompt
+    - prompt2
     is_retrieval_intent: true
 - help
 - nlu_fallback
@@ -32,6 +33,7 @@ entities:
 - query
 - part
 - prompt
+- prompt2
 - project
 slots:
   query:
@@ -58,6 +60,12 @@ slots:
     mappings:
     - type: from_entity
       entity: prompt
+  prompt2:
+    type: any
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      entity: prompt2
 responses:
   utter_did_it_help:
   - text: Did that help?
