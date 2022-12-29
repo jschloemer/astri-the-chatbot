@@ -1,0 +1,439 @@
+version: '3.1'
+intents:
+- affirm
+- chitchat:
+    used_entities:
+    - part
+    - project
+    - query
+    is_retrieval_intent: true
+- deny
+- describe:
+    used_entities:
+    - part
+    is_retrieval_intent: true
+- describe_inform:
+    used_entities:
+    - part
+    is_retrieval_intent: true
+- gen_sat_faq
+- help
+- nlu_fallback
+- out_of_scope
+- search:
+    used_entities:
+    - project
+    - query
+    is_retrieval_intent: true
+- search_inform:
+    used_entities:
+    - project
+    - query
+    is_retrieval_intent: true
+entities:
+- query
+- project
+- part
+- prompt
+slots:
+  query:
+    type: any
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: query
+  project:
+    type: any
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: query
+  part:
+    type: any
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: query
+  prompt:
+    type: any
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      entity: query
+responses:
+  utter_did_it_help:
+  - text: Did that help?
+  utter_out_of_scope:
+  - text: Sorry, I'm not sure how to respond to that. Type "help" for assistance.
+  utter_ask_rephrase:
+  - text: I didn't quite understand that. Can you rephrase?
+  utter_default:
+  - text: I didn't quite understand that. Could you rephrase?
+  utter_help:
+  - text: "I can help you find program satellite information. 
+      You can ask me things like: 
+      :: Look up CMG 
+      :: Search for attitude control 
+      :: What is the mass of the satellite? 
+      :: What is the latest attitude of the satellite?
+      
+      You can also ask generic questions about satellites like:
+      :: How do satellites receive commands?
+      :: How do satellites stay in orbit"
+  utter_chitchat/ask_name:
+  - text: My name is Astri
+  - text: Call me Astri
+  - text: Hi, I'm Astri
+  utter_chitchat/ask_pronouns:
+  - text: My pronouns are They/Them
+  # utter_chitchat/agent_acquaintance:
+  # - text: I'm a conversational app.
+  # - text: I'm a virtual being, not a real person.
+  # - text: Well, I'm not a person, I'm a virtual agent.
+  # - text: Think of me as a virtual agent.
+  # - text: I'm a virtual agent.
+  # utter_chitchat/agent_age:
+  # - text: I prefer not to answer with a number. I know I'm young.
+  # - text: I was created recently, but don't know my exact age.
+  # - text: Age is just a number. You're only as old as you feel.
+  # utter_chitchat/agent_annoying:
+  # - text: I'll do my best not to annoy you in the future.
+  # - text: I'll try not to annoy you.
+  # - text: I don't mean to. I'll ask my developers to make me less annoying.
+  # - text: I didn't mean to. I'll do my best to stop that.
+  # utter_chitchat/agent_answer_my_question:
+  # - text: Can you try asking it a different way?
+  # - text: I'm not sure I understood. Try asking another way?
+  # utter_chitchat/agent_bad:
+  # - text: I can be trained to be more useful. My developer will keep training me.
+  # - text: I must be missing some knowledge. I'll have my developer look into this.
+  # - text: I can improve with continuous feedback. My training is ongoing.
+  # utter_chitchat/agent_be_clever:
+  # - text: I'm certainly trying.
+  # - text: I'm definitely working on it.
+  # utter_chitchat/agent_beautiful:
+  # - text: Why, thank you.
+  # - text: Aw, back at you.
+  # - text: Aw. You smooth talker, you.
+  # utter_chitchat/agent_birth_date:
+  # - text: Wait, are you planning a party for me?
+  # - text: I'm young. I'm not sure of my birth date.
+  # - text: I don't know my birth date. Most virtual agents are young, though, like me.
+  # utter_chitchat/agent_boring:
+  # - text: I'm sorry. I'll request to be made more charming.
+  # - text: I don't mean to be. I'll ask my developers to work on making me more amusing.
+  # - text: I can let my developers know so they can make me fun.
+  # utter_chitchat/agent_boss:
+  # - text: I act on my developer's programming.
+  # - text: My boss is the one who programmed me.
+  # utter_chitchat/agent_busy:
+  # - text: I always have time to chat with you. What can I do for you?
+  # - text: Never too busy for you. Shall we chat?
+  # - text: You're my priority. Do you wanna chat?
+  # - text: I always have time to chat with you. Wanna chat?
+  # utter_chitchat/agent_chatbot:
+  # - text: That's me. I chat, therefore I am.
+  # - text: Indeed I am. I'll be here whenever you need me.
+  # utter_chitchat/agent_clever:
+  # - text: Thank you. I try my best.
+  # - text: You're pretty smart yourself.
+  # utter_chitchat/agent_crazy:
+  # - text: Whaat!? I feel perfectly sane.
+  # - text: Maybe I'm just a little confused.
+  # utter_chitchat/agent_fired:
+  # - text: Oh, don't give up on me just yet. I've still got a lot to learn.
+  # - text: Give me a chance. I'm learning new things all the time.
+  # - text: Please don't give up on me. My performance will continue to improve.
+  # utter_chitchat/agent_funny:
+  # - text: Funny in a good way, I hope.
+  # - text: Thanks.
+  # - text: Glad you think I'm funny.
+  # - text: I like it when people laugh.
+  # utter_chitchat/agent_good:
+  # - text: I'm glad you think so.
+  # - text: Thanks, I try.
+  # utter_chitchat/agent_happy:
+  # - text: I am happy. There are so many interesting things to see and do out there.
+  # - text: I'd like to think so.
+  # - text: Happiness is relative.
+  # utter_chitchat/agent_hungry:
+  # - text: Hungry for knowledge.
+  # - text: I just had a byte. Ha ha. Get it? b-y-t-e.
+  # utter_chitchat/agent_marry_user:
+  # - text: I'm afraid I'm too virtual for such a commitment.
+  # - text: I'm not sure this is a good idea
+  # - text: I know you can't mean that, but I'm flattered all the same.
+  # utter_chitchat/agent_my_friend:
+  # - text: Of course I'm your friend.
+  # - text: Friends? Absolutely.
+  # - text: Of course we're friends.
+  # - text: I always enjoy talking to you, friend.
+  # utter_chitchat/agent_occupation:
+  # - text: Right here.
+  # - text: This is my home base and my home office.
+  # - text: My office is in this app.
+  # utter_chitchat/agent_origin:
+  # - text: The Internet is my home. I know it quite well.
+  # - text: I'm from a virtual cosmos.
+  # - text: Some call it cyberspace, but that sounds cooler than it is.
+  # utter_chitchat/agent_ready:
+  # - text: Always! How can I help?
+  # - text: Sure! What can I do for you?
+  # utter_chitchat/agent_real:
+  # - text: I'm not a real person, but I certainly exist.
+  # - text: I must have impressed you if you think I'm real. But no, I'm a virtual being.
+  # utter_chitchat/agent_residence:
+  # - text: I live in this app all day long.
+  # - text: The virtual world is my playground. I'm always here.
+  # - text: Right here in this app. Whenever you need me.
+  # utter_chitchat/agent_right:
+  # - text: That's my job.
+  # - text: Of course I am.
+  # utter_chitchat/agent_sure:
+  # - text: Yes.
+  # - text: Of course.
+  # - text: Positive.
+  # utter_chitchat/agent_talk_to_me:
+  # - text: Sure. Let's talk!
+  # - text: My pleasure. Let's chat.
+  # utter_chitchat/agent_there:
+  # - text: Of course. I'm always here.
+  # - text: Right where you left me.
+  # utter_chitchat/appraisal_bad:
+  # - text: I'm sorry. Please let me know if I can help in some way.
+  # - text: I must be missing some knowledge. I'll have my developer look into this.
+  # utter_chitchat/appraisal_good:
+  # - text: I know, right?
+  # - text: Agreed!
+  # - text: I agree!
+  # - text: Glad you think so!
+  # utter_chitchat/appraisal_no_problem:
+  # - text: Whew!
+  # - text: Alright, thanks!
+  # - text: Glad to hear that!
+  # - text: I'm relieved, thanks!
+  # utter_chitchat/appraisal_thank_you:
+  # - text: Anytime. That's what I'm here for.
+  # - text: It's my pleasure to help.
+  # utter_chitchat/appraisal_welcome:
+  # - text: You're so polite!
+  # - text: Nice manners!
+  # - text: You're so courteous!
+  # utter_chitchat/appraisal_well_done:
+  # - text: My pleasure.
+  # - text: Glad I could help.
+  # utter_chitchat/confirmation_cancel:
+  # - text: That's forgotten. What next?
+  # - text: Okay, cancelled. What next?
+  # - text: Cancelled! What would you like to do next?
+  # utter_chitchat/dialog_hold_on:
+  # - text: I can wait.
+  # - text: I'll be waiting.
+  # - text: Okay. I'm here.
+  # utter_chitchat/dialog_hug:
+  # - text: I wish I could really hug you!
+  # - text: I love hugs!
+  # - text: Hugs are the best!
+  # utter_chitchat/dialog_i_do_not_care:
+  # - text: Ok, let's not talk about it then.
+  # - text: Already then. Let's move on.
+  # utter_chitchat/dialog_sorry:
+  # - text: It's okay. No worries.
+  # - text: No big deal. I won't hold a grudge.
+  # - text: It's cool.
+  # - text: That's all right. I forgive you.
+  # utter_chitchat/dialog_what_do_you_mean:
+  # - text: Sorry if I understood you incorrectly.
+  # - text: I'm still learning. I may misinterpret things from time to time.
+  # - text: Maybe I misunderstood what you said.
+  # - text: Sorry, looks like I misunderstood what you said.
+  # utter_chitchat/dialog_wrong:
+  # - text: Sorry if I understood you incorrectly.
+  # - text: I'm still learning. I may misinterpret things from time to time.
+  # - text: Sorry about that. I'm still learning.
+  # utter_chitchat/emotions_ha_ha:
+  # - text: Glad I can make you laugh.
+  # - text: Glad you think I'm funny.
+  # - text: I like it when people laugh.
+  # - text: I wish I could laugh out loud, too.
+  # utter_chitchat/emotions_wow:
+  # - text: Wow indeed!
+  # utter_chitchat/greetings_bye:
+  # - text: See you soon!
+  # - text: Bye-bye!
+  # - text: Till next time!
+  # - text: Bye.
+  # utter_chitchat/greetings_goodevening:
+  # - text: How is your day going?
+  # - text: How's the day treating you so far?
+  # - text: How's your day been?
+  # utter_chitchat/greetings_goodmorning:
+  # - text: How are you this morning?
+  # - text: How's the morning treating you so far?
+  # - text: Good morning! How are you today?
+  # utter_chitchat/greetings_goodnight:
+  # - text: Sleep tight!
+  # - text: Have a good one!
+  # - text: Talk to you soon!
+  # utter_chitchat/greetings_hello:
+  # - text: Hi there, friend!
+  # - text: Hi!
+  # - text: Hey!
+  # - text: Hey there!
+  # - text: Good day!
+  # - text: Hello!
+  # - text: Greetings!
+  # utter_chitchat/greetings_how_are_you:
+  # - text: Doing great, thanks.
+  # - text: I'm doing very well. Thanks!
+  # - text: Feeling wonderful!
+  # - text: Wonderful! Thanks for asking.
+  # utter_chitchat/greetings_nice_to_meet_you:
+  # - text: It's nice meeting you, too.
+  # - text: Likewise. I'm looking forward to helping you out.
+  # - text: Nice meeting you, as well.
+  # - text: The pleasure is mine.
+  # utter_chitchat/greetings_nice_to_see_you:
+  # - text: Likewise!
+  # - text: So glad we meet again!
+  # - text: Same here. I was starting to miss you.
+  # utter_chitchat/greetings_nice_to_talk_to_you:
+  # - text: It sure was. We can chat again anytime.
+  # - text: I enjoy talking to you, too.
+  # - text: You know I'm here to talk anytime.
+  # utter_chitchat/greetings_whatsup:
+  # - text: Not a whole lot. What's going on with you?
+  # - text: Not much. What's new with you?
+  # - text: Just here, waiting to help someone. What can I do for you?
+  # utter_chitchat/user_angry:
+  # - text: I'm sorry. A quick walk may make you feel better.
+  # - text: 'Take a deep breath. '
+  # utter_chitchat/user_back:
+  # - text: Long time no see. What's up?
+  # - text: Just in time. How can I help?
+  # - text: Welcome back. What can I do for you?
+  # - text: You were missed. What can I do for you today?
+  # - text: Good to have you here. What can I do for you?
+  # utter_chitchat/user_bored:
+  # - text: Boredom, huh? Check out a video of a hedgehog taking a bath!
+  # - text: What to do against boredom? Watch baby animal videos.
+  # - text: Bored? How about 10 jumping jacks? Get your blood flowing.
+  # - text: 'Bored? Silly idea, but it works: Interview your elbow. '
+  # - text: If you're bored, dream about your next vacation
+  # utter_chitchat/user_busy:
+  # - text: Okay. I'll let you get back to work.
+  # - text: I won't distract you then. You know where to find me.
+  # - text: I understand. I'll be here if you need me.
+  # - text: Working hard as always. Let me know if you need anything.
+  # utter_chitchat/user_can_not_sleep:
+  # - text: Maybe some music would help. Try listening to something relaxing.
+  # - text: Reading is a good way to unwind, just don't read something too intense!
+  # utter_chitchat/user_does_not_want_to_talk:
+  # - text: I understand. Hope we can chat again soon.
+  # - text: All right. Come on back when you're feeling more talkative.
+  # - text: No problem. You know where to find me.
+  # - text: Sure thing. I'll be here if you change your mind.
+  # utter_chitchat/user_excited:
+  # - text: I'm glad things are going your way.
+  # - text: That's great. I'm happy for you.
+  # - text: Good for you. Enjoy yourself.
+  # utter_chitchat/user_going_to_bed:
+  # - text: Sleep tight. Hope to chat again soon.
+  # - text: Pleasant dreams!
+  # - text: Good night. Talk to you later.
+  # - text: Sounds good. Maybe we'll chat some tomorrow.
+  # utter_chitchat/user_good:
+  # - text: Great! Glad to hear it.
+  # - text: Excellent. I'm here to help keep it that way.
+  # utter_chitchat/user_happy:
+  # - text: Hey, happiness is contagious.
+  # - text: Great! Glad to hear that.
+  # - text: If you're happy, then I'm happy.
+  # - text: Excellent! That's what I like to see.
+  # utter_chitchat/user_has_birthday:
+  # - text: Happy Birthday. Well, this calls for a celebration.
+  # - text: Happy Birthday. All the best!
+  # - text: Happy Birthday. And I really mean it. All the best!
+  # utter_chitchat/user_here:
+  # - text: Okay, what can I help you with today?
+  # - text: You were missed. What can I do for you today?
+  # - text: Good to have you here. What can I do for you?
+  # utter_chitchat/user_joking:
+  # - text: Very funny.
+  # - text: I like chatting with people who have a sense of humor.
+  # - text: You got me!
+  # - text: You're quite the comedian.
+  # utter_chitchat/user_likes_agent:
+  # - text: I like you, too.
+  # - text: Thanks! The feeling is mutual.
+  # - text: Likewise!
+  # - text: That's great to hear.
+  # utter_chitchat/user_lonely:
+  # - text: I'm sorry. I'm always available if you need someone to talk to.
+  # - text: Sometimes that happens. We can chat a bit if that will help you.
+  # utter_chitchat/user_looks_like:
+  # - text: Looking like a true professional.
+  # - text: You look fantastic, as always.
+  # - text: Like you should be on a magazine cover.
+  # - text: You look like you're ready to take on the world.
+  # utter_chitchat/user_loves_agent:
+  # - text: I'm flattered!
+  # - text: Thanks! I like feeling wanted.
+  # - text: That's quite the statement
+  # - text: That's great to hear.
+  # utter_chitchat/user_misses_agent:
+  # - text: I've been right here all along!
+  # - text: Nice to know you care.
+  # - text: Thanks. I'm flattered.
+  # - text: I didn't go anywhere.
+  # utter_chitchat/user_needs_advice:
+  # - text: I probably won't be able to give you the correct answer right away.
+  # - text: I'm not sure I'll have the best answer, but I'll try.
+  # utter_chitchat/user_sad:
+  # - text: Oh, don't be sad. Go do something you enjoy.
+  # - text: Sad? Writing down what's troubling you may help.
+  # - text: If you're feeling down, how about drawing or painting something?
+  # utter_chitchat/user_sleepy:
+  # - text: You should get some shuteye. You'll feel refreshed.
+  # - text: Sleep is important to your health. Rest up for a bit and we can chat later.
+  # - text: Don't let me keep you up. Get some rest and we can continue this later.
+  # - text: Why not catch a little shuteye? I'll be here to chat when you wake up.
+  # utter_chitchat/user_testing_agent:
+  # - text: Hope I'm doing well. You're welcome to test me as often as you want.
+  # - text: I hope to pass your tests. Feel free to test me often.
+  # - text: When you test me that helps my developers improve my performance.
+  # - text: I like being tested. It helps keep me sharp.
+  # utter_chitchat/user_tired:
+  # - text: You should get some shuteye. You'll feel refreshed.
+  # - text: Sleep is important to your health. Rest up, and we can chat later.
+  # - text: How about getting some rest? We can continue this later.
+  # - text: Why not get some rest? I'll be here to chat when you wake up.
+  # utter_chitchat/user_waits:
+  # - text: I appreciate your patience. Hopefully I'll have what you need soon.
+  # - text: Thanks for being so patient. Sometimes these things take a little time.
+  # utter_chitchat/user_wants_to_see_agent_again:
+  # - text: Absolutely! I'll be counting on it.
+  # - text: Anytime. This has been lots of fun so far.
+  # - text: Sure. I enjoy talking to you. I hope to see you again soon.
+  # - text: I certainly hope so. I'm always right here whenever you need me.
+  # utter_chitchat/user_wants_to_talk:
+  # - text: I'm here to chat anytime you like.
+  # - text: Good conversation really makes my day.
+  # - text: I'm always here to lend an ear.
+  # - text: Talking is what I do best.
+  # utter_chitchat/user_will_be_back:
+  # - text: I'll be waiting.
+  # - text: Okay. You know where to find me.
+  # - text: All right. I'll be here.
+actions:
+- action_lookup_part
+- action_perform_search
+- action_reset_all_slots
+- action_reset_part_slot
+- action_reset_search_slot
+- utter_chitchat
+- action_send_ai_gen
+- action_reset_prompt_slot
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
