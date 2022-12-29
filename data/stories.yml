@@ -37,6 +37,7 @@ stories:
     entities:
     - query: STM32F4
   - action: action_perform_search
+  - action: action_reset_search_slot
 
 - story: part_story
   steps:
@@ -44,6 +45,7 @@ stories:
     entities:
     - query: adcs
   - action: action_lookup_part
+  - action: action_reset_part_slot
 
 - story: ai_story_good
   steps:
@@ -51,6 +53,7 @@ stories:
     entities:
     - prompt: how do satellites receive commands?
   - action: action_send_ai_gen
+  - action: action_reset_prompt_slot
 
 - story: interactive_story_22
   steps:
@@ -58,12 +61,14 @@ stories:
     entities:
     - query: satellites
   - action: action_perform_search
+  - action: action_reset_search_slot
   - intent: gen_sat_faq
     entities:
     - prompt: How do satellites stay in orbit?
   - action: action_send_ai_gen
+  - action: action_reset_prompt_slot
   - intent: describe
     entities:
     - part: CMG
   - action: action_lookup_part
-  - action: action_reset_all_slots
+  - action: action_reset_part_slot

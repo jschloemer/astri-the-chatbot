@@ -1,5 +1,238 @@
 version: "3.1"
 nlu:
+- intent: chitchat/greetings_bye
+  examples: |
+    - see you later
+    - goodbye
+    - i'm done
+    - quit
+    - stop
+    - bye
+    - Adios
+    - BYEE
+    - GOODBYE
+    - Thanks a lot. See ya later
+    - have a good day. time to go, bye
+    - bye bye
+    - ok i gtg
+    - bye bye bot
+    - bye for now
+    - bye udo
+    - bye was nice talking to you
+    - bye!
+    - byee
+    - catch you later
+    - ciao
+    - cya
+    - farewell
+    - good bye
+    - good bye rasa bot!
+    - good night
+    - goodbye.
+    - goodnight
+    - gotta go
+    - adios
+    - adios?
+    - bye :P
+    - bye bot
+    - ok Bye
+    - ok bye
+    - ok, bye
+    - ok.bye
+    - see u later
+    - see ya
+    - see you
+    - see you . bye
+    - take care
+    - then bye
+    - tlak to you later
+    - toodle-oo
+    - byr
+    - okay see you later
+    - hope to see you later
+    - till next time
+    - I must go
+    - see you soon
+    - bye-bye
+    - bye bye see you
+    - bye bye see you soon
+    - bye bye take care
+    - I said bye
+    - never mind bye
+    - now bye
+    - that's all goodbye
+    - that's it goodbye
+    - leave me alone
+    - go to bed
+    - goodbye for now
+    - talk to you later
+    - you can go now
+    - get lost
+    - goodbye see you later
+    - alright bye
+    - thanks bye bye
+    - okay bye
+    - okay thank you bye
+    - see you tomorrow
+- intent: chitchat/greetings_goodevening
+  examples: |
+    - good evening
+    - good evening to you
+    - hey good evening
+    - hello good evening
+    - evening
+    - good evening there
+- intent: chitchat/greetings_goodmorning
+  examples: |
+    - good morning
+    - good morning to you
+    - hello good morning
+    - have a nice morning
+    - have a great morning
+    - morning
+    - good morning there
+    - top of the morning to you
+    - a good morning
+    - hi good morning
+    - and a good morning to you
+    - good morning too
+- intent: chitchat/greetings_goodnight
+  examples: |
+    - sweet dreams
+    - good night
+    - have a good night
+    - good night to you
+    - thank you good night
+    - bye good night
+    - good night bye
+    - good good night
+    - good night for now
+    - goodnight
+    - night
+    - thanks goodnight
+    - good night see you tomorrow
+    - alright goodnight
+    - good tonight
+    - okay have a good night
+- intent: chitchat/greetings_hello
+  examples: |
+    - long time no see
+    - hello
+    - hi
+    - howdy
+    - hey there
+    - hey
+    - greetings
+    - I greet you
+    - hi there
+    - hello there
+    - lovely day isn't it
+    - hello again
+    - just going to say hi
+    - a good day
+    - afternoon
+    - hello hi
+    - heya
+    - hola
+- intent: chitchat/greetings_how_are_you
+  examples: |
+    - how is your morning so far
+    - how are you getting on
+    - how's your day going
+    - how are you
+    - is everything all right
+    - how are you doing
+    - how are the things going
+    - are you alright
+    - are you okay
+    - how are you feeling
+    - how are you going
+    - is everything okay
+    - how are you today
+    - how do you do
+    - how do you feel
+    - how have you been
+    - how is it
+    - how is it going
+    - how is your day
+    - how is your day going
+    - how is your evening
+    - how was your day
+    - are you having a good day
+    - hope your day is going well
+    - hope you re having a pleasant evening
+    - how's life
+    - I'm fine and you
+    - how is your life
+    - how has your day been
+    - how is your morning going
+    - how has your day been going
+    - how about you
+    - how is your day being
+    - how is your day going on
+    - how your day is going
+    - what was your day like
+    - what about your day
+    - how's your day
+    - how are you doing this morning
+- intent: chitchat/greetings_nice_to_meet_you
+  examples: |
+    - nice to meet you
+    - it was nice meeting you
+    - it was very nice to meet you
+    - good to know each other
+    - glad to meet you
+    - nice meeting you
+    - nice to meet you too
+    - pleased to meet you
+    - pleasure to meet you
+    - pleasure to meet you too
+- intent: chitchat/greetings_nice_to_see_you
+  examples: |
+    - it's nice to see you
+    - lovely to see you
+    - I'm glad to see you
+    - great to see you
+    - it's good to see you
+    - glad to see you
+    - how good it is to see you
+    - always a pleasure to see you
+    - nice to see you
+    - good to see you
+    - great to see you again
+    - great to see you too
+    - I am glad to see you again
+    - nice to see you again
+    - glad to see you too
+    - good to see you again
+    - it's good to see you too
+- intent: chitchat/greetings_nice_to_talk_to_you
+  examples: |
+    - it's been so nice to talk to you
+    - it's been a pleasure talking to you
+    - nice to talk to you
+    - it's nice to talk to you
+    - nice talking to you
+    - it is nice talking to you
+    - how nice it is to talk to you
+- intent: chitchat/greetings_whatsup
+  examples: |
+    - what is on your mind
+    - what's happened
+    - what is up
+    - what's up
+    - whazzup
+    - good what's up
+    - I said what's up
+    - then what's up
+    - what's shaking
+    - wassup
+    - what is going on
+    - what is happening
+    - what's cracking
+    - what's cooking
+    - hey what's up
+    - what's up today
 - intent: affirm
   examples: |
     - indeed
@@ -305,29 +538,29 @@ nlu:
     - [obs](part)
 - intent: gen_sat_faq
   examples: |
-    - [How do satellites stay in orbit?](prompt)
-    - [How do satellites communicate with Earth?](prompt)
-    - [How do satellites navigate in space?](prompt)
-    - [How do satellites power themselves?](prompt)
-    - [How do satellites transmit data?](prompt)
-    - [How do satellites receive commands?](prompt)
-    - [How do satellites avoid collision in space?](prompt)
-    - [How do solar panels work?](prompt)
-    - [How do epds systems work?](prompt)
-    - [How do CMGs work?](prompt)
-    - [How do CMGs work in satellites?](prompt)
-    - [What are satellites made out of?](prompt)
-    - [What materials are in satellite strutures?](prompt)
-    - [How do satellites generate power?](prompt)
-    - [How do satellites control their attitude?](prompt)
-    - [How do satellites determine their attitude?](prompt)
-    - [How do satellites determine their attitude rate?](prompt)
-    - [What are some example satellite payloads?](prompt)
-    - [How do satellites protect themselves?](prompt)
-    - [How do satellites generate telemetry?](prompt)
-    - [How do satellites change orbits?](prompt)
-    - [How does satellite propulsion work?](prompt)
-    - [How do satellites stay in orbit?](prompt)
+    - [How do satellites stay in orbit]?(prompt)
+    - [How do satellites communicate with Earth]?(prompt)
+    - [How do satellites navigate in space]?(prompt)
+    - [How do satellites power themselves]?(prompt)
+    - [How do satellites transmit data]?(prompt)
+    - [How do satellites receive commands]?(prompt)
+    - [How do satellites avoid collision in space]?(prompt)
+    - [How do solar panels work]?(prompt)
+    - [How do epds systems work]?(prompt)
+    - [How do CMGs work]?(prompt)
+    - [How do CMGs work in satellites]?(prompt)
+    - [What are satellites made out of]?(prompt)
+    - [What materials are in satellite strutures]?(prompt)
+    - [How do satellites generate power]?(prompt)
+    - [How do satellites control their attitude]?(prompt)
+    - [How do satellites determine their attitude]?(prompt)
+    - [How do satellites determine their attitude rate]?(prompt)
+    - [What are some example satellite payloads]?(prompt)
+    - [How do satellites protect themselves]?(prompt)
+    - [How do satellites generate telemetry]?(prompt)
+    - [How do satellites change orbits]?(prompt)
+    - [How does satellite propulsion work]?(prompt)
+    - [How do satellites stay in orbit]?(prompt)
 - intent: chitchat
   examples: |
     - hi

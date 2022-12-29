@@ -1,13 +1,7 @@
 version: '3.1'
 intents:
 - affirm
-- chitchat:
-    used_entities:
-    - part
-    - project
-    - prompt
-    - query
-    is_retrieval_intent: true
+- chitchat
 - deny
 - describe:
     used_entities:
@@ -17,7 +11,10 @@ intents:
     used_entities:
     - part
     is_retrieval_intent: true
-- gen_sat_faq
+- gen_sat_faq:
+    used_entities:
+    - prompt
+    is_retrieval_intent: true
 - help
 - nlu_fallback
 - out_of_scope
@@ -48,19 +45,19 @@ slots:
     influence_conversation: false
     mappings:
     - type: from_entity
-      entity: query
+      entity: project
   part:
     type: any
     influence_conversation: false
     mappings:
     - type: from_entity
-      entity: query
+      entity: part
   prompt:
     type: any
     influence_conversation: false
     mappings:
-    - type: from_text
-      entity: query
+    - type: from_entity
+      entity: prompt
 responses:
   utter_did_it_help:
   - text: Did that help?
@@ -71,15 +68,60 @@ responses:
   utter_default:
   - text: I didn't quite understand that. Could you rephrase?
   utter_help:
-  - text: |-
-      I can help you find program satellite information. You can ask me things like: :: Look up CMG :: Search for attitude control :: What is the mass of the satellite? :: What is the latest attitude of the satellite?
-      You can also ask generic questions about satellites like: :: How do satellites receive commands? :: How do satellites stay in orbit
+  - text: I can help you find program satellite information. You can ask me things like -- Look up CMG -- Search for attitude control -- What is the mass of the satellite? -- What is the latest attitude of the satellite? -- You can also ask generic questions about satellites like -- How do satellites receive commands? -- How do satellites stay in orbit?
   utter_chitchat/ask_name:
   - text: My name is Astri
   - text: Call me Astri
   - text: Hi, I'm Astri
   utter_chitchat/ask_pronouns:
   - text: My pronouns are They/Them
+  utter_chitchat/greetings_bye:
+  - text: See you soon!
+  - text: Bye-bye!
+  - text: Till next time!
+  - text: Bye.
+  utter_chitchat/greetings_goodevening:
+  - text: How is your day going?
+  - text: How's the day treating you so far?
+  - text: How's your day been?
+  utter_chitchat/greetings_goodmorning:
+  - text: How are you this morning?
+  - text: How's the morning treating you so far?
+  - text: Good morning! How are you today?
+  utter_chitchat/greetings_goodnight:
+  - text: Sleep tight!
+  - text: Have a good one!
+  - text: Talk to you soon!
+  utter_chitchat/greetings_hello:
+  - text: Hi there, friend!
+  - text: Hi!
+  - text: Hey!
+  - text: Hey there!
+  - text: Good day!
+  - text: Hello!
+  - text: Greetings!
+  utter_chitchat/greetings_how_are_you:
+  - text: Doing great, thanks.
+  - text: I'm doing very well. Thanks!
+  - text: Feeling wonderful!
+  - text: Wonderful! Thanks for asking.
+  utter_chitchat/greetings_nice_to_meet_you:
+  - text: It's nice meeting you, too.
+  - text: Likewise. I'm looking forward to helping you out.
+  - text: Nice meeting you, as well.
+  - text: The pleasure is mine.
+  utter_chitchat/greetings_nice_to_see_you:
+  - text: Likewise!
+  - text: So glad we meet again!
+  - text: Same here. I was starting to miss you.
+  utter_chitchat/greetings_nice_to_talk_to_you:
+  - text: It sure was. We can chat again anytime.
+  - text: I enjoy talking to you, too.
+  - text: You know I'm here to talk anytime.
+  utter_chitchat/greetings_whatsup:
+  - text: Not a whole lot. What's going on with you?
+  - text: Not much. What's new with you?
+  - text: Just here, waiting to help someone. What can I do for you?
 actions:
 - action_lookup_part
 - action_perform_search
