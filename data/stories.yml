@@ -207,3 +207,28 @@ stories:
   - action: action_reset_part_slot
   - slot_was_set:
     - part: null
+
+- story: interactive_story_1
+  steps:
+  - intent: chitchat
+  - action: utter_chitchat
+  - intent: describe
+  - action: utter_part_ask
+  - intent: describe_inform
+    entities:
+    - part: NASA
+  - slot_was_set:
+    - part: NASA
+  - action: action_lookup_part
+  - action: action_reset_part_slot
+  - slot_was_set:
+    - part: null
+  - intent: describe
+    entities:
+    - part: NASA
+  - slot_was_set:
+    - part: NASA
+  - action: action_lookup_part
+  - action: action_reset_part_slot
+  - slot_was_set:
+    - part: null

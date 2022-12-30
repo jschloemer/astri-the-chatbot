@@ -20,6 +20,24 @@ import elasticsearch
 import openai
 import os
 
+# Part Items
+import pandas as pd
+
+# Setup the part data
+useacronyms = False
+try:
+    # Load the JSON file into a pandas DataFrame
+    df = pd.read_json('index/acronyms.json')
+    # Convert the strings in the 'Entity' column to lowercase
+    df['Acronym'] = df['Acronym'].str.lower()
+
+    # Print the DataFrame
+    print(df)
+    useacronyms = True
+except:
+    useacronyms = False
+    print("No Acronym Data Found")
+
 # Setup for openai access
 ## If not setup, set global boolean to prevent errors
 key = os.getenv("OPENAI_API_KEY")
@@ -146,11 +164,39 @@ class ActionLookupPart(Action):
         dispatcher.utter_message(text="Looking up part")
         
         part = tracker.get_slot('part')
-        text = "Part: " + str(part)
+        text = "Got it! Part: " + str(part)
         dispatcher.utter_message(text=text)
+        
+        print(str(part))
         
         numResponses = 0
         
+        entityFilled = True
         
+        if (part is None or part == ""):
+            entityFilled = False
+            text = "Passed search string was blank. Sorry!!"
+            dispatcher.utter_message(text=text)
 
+        if (useacronyms or entityFilled is False):
+            # Find the entity in the 'Acronym' column
+            entity = part
+
+            try:
+                # Return the item in the 'Item' column
+                item = df.loc[df['Acronym'] == entity.lower(), 'Description'].values[0]
+
+                #print(item)  # Output: 'Item 1'
+                
+                # Create the response
+                text = str(entity) + " stands for " + str(item)
+                numResponses = numResponses + 1
+                dispatcher.utter_message(text=text)
+            except:
+                print("No Acronym Match Found")
+        
+        if (numResponses == 0):
+            text = "After reviewing the documentation, no information was found. Sorry."
+            dispatcher.utter_message(text=text)
+        
         return []
