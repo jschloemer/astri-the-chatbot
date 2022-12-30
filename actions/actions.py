@@ -16,7 +16,7 @@ from rasa_sdk.events import SlotSet
 
 # Search Items
 
-import elasticsearch
+from elasticsearch import Elasticsearch
 import openai
 import os
 
@@ -32,11 +32,25 @@ try:
     df['Acronym'] = df['Acronym'].str.lower()
 
     # Print the DataFrame
-    print(df)
+    print("Acronyms Loaded")
     useacronyms = True
 except:
     useacronyms = False
-    print("No Acronym Data Found")
+    print("WARN - No Acronym Data Found")
+    
+# Setup Search
+numberSearchResults = 3
+useElastic = False
+
+try:
+    # Connect to the Elasticsearch instance
+    es = Elasticsearch(['localhost'])
+    useElastic = True
+    print("Elastic Connected")
+except:
+    # Handle connectivity issues
+    useElastic = False
+    print("WARN - Error with Elastic Configuration")
 
 # Setup for openai access
 ## If not setup, set global boolean to prevent errors
@@ -44,11 +58,12 @@ key = os.getenv("OPENAI_API_KEY")
 useopenai = ""
 if (key is None):
     useopenai = False
-    print("No OPENAI API Key Found - All external queries will be stopped")
+    print("WARN - No OPENAI API Key Found - All external queries will be stopped")
 else:    
     openai.api_key = key
     useopenai = True
-useopenai = False
+    print("Using OpenAI")
+# useopenai = False
 
 class ActionSendAIGen(Action):
     
@@ -141,14 +156,52 @@ class ActionPerformSearch(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        dispatcher.utter_message(text="Performing Search")
+        dispatcher.utter_message(text="Performing Search...")
         
         query = tracker.get_slot('query')
         project = tracker.get_slot('project')
         
-        text = "Query: " + str(query) + " Project: " + str(project)
-        
+        text = "Searching with Query: " + str(query) + " Project: " + str(project)
         dispatcher.utter_message(text=text)
+        
+        queryPopulated = True
+        if(query is None or query == ""):
+            queryPopulated = False
+            text = "No query was passed. Sorry!!"
+            dispatcher.utter_message(text=text)
+            
+        if(useElastic and queryPopulated):
+        # Only entered if upfront items work
+            if (project is None or project == ""):
+                results = es.search(index='webpage', body={'query': {'fuzzy': {'text': {'value': query, 'fuzziness': 2, 'analyzer': 'standard'}}}, 'sort': [{'_score': {'order': 'desc'}}], 'size': numberSearchResults})
+
+                # Not sure this works yet...
+                # Need to find the url
+                names = [doc['body']['url'] for doc in results['hits']['hits']]
+                
+                text = "Here's the top results:"
+                dispatcher.utter_message(text=text)
+                
+                if (names is None):
+                    text = "No results found."
+                    dispatcher.utter_message(text=text)
+                else:
+                    for name in names:
+                        text = "[" + name + "](" + name + ")"
+                        dispatcher.utter_message(text=text)
+            else:
+                # Project is populated
+                
+                # Code needs to be written
+                text = "Not sure how we got here but this is still under construction"
+                dispatcher.utter_message(text=text)
+        else:
+            if (useElastic is False):
+                text = "Search not correctly configured. Sorry!!"
+                dispatcher.utter_message(text=text)
+            else:
+                text = "Query was passed blank. No search is possible. Sorry."
+                dispatcher.utter_message(text=text)
 
         return []
     
@@ -162,7 +215,7 @@ class ActionLookupPart(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         print("In Lookup Part")
-        dispatcher.utter_message(text="Looking up part")
+        dispatcher.utter_message(text="Looking it up...")
         
         part = tracker.get_slot('part')
         text = "Got it! Part: " + str(part)
