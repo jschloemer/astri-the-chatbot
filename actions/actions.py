@@ -63,7 +63,7 @@ else:
     openai.api_key = key
     useopenai = True
     print("Using OpenAI")
-# useopenai = False
+useopenai = False
 
 class ActionSendAIGen(Action):
     
@@ -99,10 +99,12 @@ class ActionSendAIGen(Action):
                 stop=["\n"]
             )
             
-            if(response=="Unknown"):
-                response = "Sorry, I don't know the answer to this one"
+            text = response['choices'][0]['text']
             
-            dispatcher.utter_message(text=response)
+            if(text=="Unknown"):
+                text = "Sorry, I don't know the answer to this one"
+            
+            dispatcher.utter_message(text=text)
         else:
             print(prompt)
             dispatcher.utter_message(text="Access to this information has not been setup properly. Sorry")

@@ -14,6 +14,11 @@ import csv
 # Connect to the Elasticsearch cluster
 es = elasticsearch.Elasticsearch(['localhost'])
 
+# Check if the 'webpage' index exists
+if es.indices.exists(index='webpage'):
+    # Delete the 'old-index' index
+    es.indices.delete(index='webpage')
+
 # Define a list of URLs to index
 # Create an empty list to store the URLs
 urls = []

@@ -1958,6 +1958,9 @@ nlu:
     - [How do satellites fit inside rockets](prompt)?
     - [How do satellites avoid collisions in space](prompt)?
     - [How do satellites survive launch](prompt)?
+    - [What is the closest sustainable orbit for a satellite](prompt)?
+    - [What is the lifespan of a satellite](prompt)?
+
 - intent: chitchat
   examples: |
     - hi

@@ -7,8 +7,13 @@ Astri uses the index folder to hold the necessary data structures it uses to sea
 - parts.json {Key value part - part/subsystem :: Description}
 - ... search files ...
 
-Spacy requires a small package to be downloaded using the command
+Spacy requires a small package to be downloaded using the command.
+
     python3 -m spacy download en_core_web_sm
+
+## OpenAI Instructions
+
+The user must have an openAI account to use the openAI features. Specifically, the API key needs to be generated from the website and stored for local use in an environment variable called OPENAI_API_KEY
 
 ## Running the server
 
