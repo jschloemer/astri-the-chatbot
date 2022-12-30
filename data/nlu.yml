@@ -1960,6 +1960,29 @@ nlu:
     - [How do satellites survive launch](prompt)?
     - [What is the closest sustainable orbit for a satellite](prompt)?
     - [What is the lifespan of a satellite](prompt)?
+    - [What material are in satellites](prompt)?
+    - [What do satellites use to store energy](prompt)?
+    - [What does it mean to be in GEO orbit](prompt)?
+    - [How many satellites are in orbit today](prompt)?
+    - [What was the first launched satellite](prompt)?
+    - [What was the first satellite launched by the United States](prompt)?
+    - [How do IRUs work](prompt)?
+    - [How do computers protect themselves from radiation in space](prompt)?
+    - [What do satellites use as propellant](prompt)?
+    - [How does hydrazene work as a propellant](prompt)?
+    - [Why do satellites use hydrazene as a propellant](prompt)?
+    - [Why are computers in space so slow](prompt)?
+    - [What is the difference between CMGs and reaction wheels](prompt)?
+    - [What is Ka-Band](prompt)?
+    - [How do satellites know where they are](prompt)?
+    - [What is S-Band](prompt)?
+    - [What RF bands do satellites communicate](prompt)?
+    - [How do satellites stay warm](prompt)?
+    - [What do satellites use to heat themselves](prompt)?
+    - [How do satellites get rid of heat](prompt)?
+    - [What do satellites use to remove heat](prompt)?
+    - [How do radiators work](prompt)?
+    - [What is the difference between 2-axis and 3-axis stablized satellites](prompt)?
 
 - intent: chitchat
   examples: |
