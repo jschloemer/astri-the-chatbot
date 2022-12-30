@@ -36,6 +36,24 @@ stories:
   - intent: search
     entities:
     - query: STM32F4
+  - slot_was_set:
+    - query: STM32F4
+  - action: action_perform_search
+  - action: action_reset_search_slot
+
+- story: interactive_story_zz
+  steps:
+  - intent: chitchat
+  - action: utter_chitchat
+  - intent: search
+  - slot_was_set:
+    - query: null
+  - action: utter_search_ask
+  - intent: search_inform
+    entities:
+    - query: STM32F4
+  - slot_was_set:
+    - query: STM32F4
   - action: action_perform_search
   - action: action_reset_search_slot
 
@@ -43,7 +61,23 @@ stories:
   steps:
   - intent: describe
     entities:
-    - query: adcs
+    - part: adcs
+  - slot_was_set:
+    - part: adcs
+  - action: action_lookup_part
+  - action: action_reset_part_slot
+
+- story: part_story_bad
+  steps:
+  - intent: describe
+  - slot_was_set:
+    - query: null
+  - action: utter_part_ask
+  - intent: describe_inform
+    entities:
+    - part: adcs
+  - slot_was_set:
+    - part: adcs
   - action: action_lookup_part
   - action: action_reset_part_slot
 
@@ -51,6 +85,8 @@ stories:
   steps:
   - intent: gen_sat_faq
     entities:
+    - prompt: how do satellites receive commands?
+  - slot_was_set:
     - prompt: how do satellites receive commands?
   - action: action_send_ai_gen
   - action: action_reset_prompt_slot
@@ -65,10 +101,109 @@ stories:
   - intent: gen_sat_faq
     entities:
     - prompt: How do satellites stay in orbit?
+  - slot_was_set:
+    - prompt: How do satellites stay in orbit?
   - action: action_send_ai_gen
   - action: action_reset_prompt_slot
   - intent: describe
     entities:
     - part: CMG
+  - slot_was_set:
+    - part: CMG
   - action: action_lookup_part
   - action: action_reset_part_slot
+
+- story: interactive_story_works
+  steps:
+  - intent: chitchat
+  - action: utter_chitchat
+  - intent: search
+    entities:
+    - query: calibrations
+  - slot_was_set:
+    - query: calibrations
+  - action: action_perform_search
+  - action: action_reset_search_slot
+  - intent: describe
+    entities:
+    - part: COM
+  - slot_was_set:
+    - part: COM
+  - action: action_lookup_part
+  - action: action_reset_part_slot
+  - intent: gen_sat_faq
+    entities:
+    - prompt: How do satellites store energy
+  - action: action_send_ai_gen
+  - action: action_reset_prompt_slot
+  - intent: gen_sat_faq
+    entities:
+    - prompt: How do satellites fit inside rockets
+  - action: action_send_ai_gen
+  - action: action_reset_prompt_slot
+  - intent: gen_sat_faq
+    entities:
+    - prompt: How do solar panels work
+  - action: action_send_ai_gen
+  - action: action_reset_prompt_slot
+  - intent: gen_sat_faq
+    entities:
+    - prompt: How do satellites avoid collision in space
+  - action: action_send_ai_gen
+  - action: action_reset_prompt_slot
+  - intent: chitchat
+  - action: utter_chitchat
+
+- story: interactive_story_1
+  steps:
+  - intent: chitchat
+  - action: utter_chitchat
+  - intent: chitchat
+  - action: utter_chitchat
+  - intent: gen_sat_faq
+    entities:
+    - prompt: How do satellites survive launch
+  - slot_was_set:
+    - prompt: How do satellites survive launch
+  - action: action_send_ai_gen
+  - action: action_reset_prompt_slot
+  - slot_was_set:
+    - prompt: null
+  - intent: search
+  - action: utter_search_ask
+  - intent: search_inform
+    entities:
+    - query: batteries
+  - slot_was_set:
+    - query: batteries
+  - action: action_perform_search
+  - action: action_reset_search_slot
+  - slot_was_set:
+    - query: null
+  - slot_was_set:
+    - project: null
+  - intent: describe
+  - action: utter_part_ask
+  - intent: describe_inform
+    entities:
+    - part: NASA
+  - action: action_lookup_part
+  - action: action_reset_part_slot
+  - slot_was_set:
+    - part: null
+  - intent: describe
+  - action: utter_part_ask
+  - intent: describe_inform
+    entities:
+    - part: NRO
+  - action: action_lookup_part
+  - action: action_reset_part_slot
+  - slot_was_set:
+    - part: null
+  - intent: describe
+    entities:
+    - part: ISS
+  - action: action_lookup_part
+  - action: action_reset_part_slot
+  - slot_was_set:
+    - part: null

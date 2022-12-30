@@ -1,7 +1,13 @@
 version: '3.1'
 intents:
 - affirm
-- chitchat
+- chitchat:
+    used_entities:
+    - part
+    - project
+    - prompt
+    - query
+    is_retrieval_intent: true
 - deny
 - describe:
     used_entities:
@@ -14,7 +20,6 @@ intents:
 - gen_sat_faq:
     used_entities:
     - prompt
-    - prompt2
     is_retrieval_intent: true
 - help
 - nlu_fallback
@@ -30,45 +35,42 @@ intents:
     - query
     is_retrieval_intent: true
 entities:
-- query
 - part
+- query
 - prompt
-- prompt2
 - project
 slots:
   query:
-    type: any
-    influence_conversation: false
+    type: text
+    influence_conversation: true
     mappings:
     - type: from_entity
       entity: query
   project:
-    type: any
+    type: text
     influence_conversation: false
     mappings:
     - type: from_entity
       entity: project
   part:
-    type: any
-    influence_conversation: false
+    type: text
+    influence_conversation: true
     mappings:
     - type: from_entity
       entity: part
   prompt:
-    type: any
-    influence_conversation: false
+    type: text
+    influence_conversation: true
     mappings:
     - type: from_entity
       entity: prompt
-  prompt2:
-    type: any
-    influence_conversation: false
-    mappings:
-    - type: from_text
-      entity: prompt2
 responses:
   utter_did_it_help:
   - text: Did that help?
+  utter_part_ask:
+  - text: What part or acronym do you want described?
+  utter_search_ask:
+  - text: What do you want to search for?
   utter_out_of_scope:
   - text: Sorry, I'm not sure how to respond to that. Type "help" for assistance.
   utter_ask_rephrase:
@@ -139,6 +141,8 @@ actions:
 - action_reset_search_slot
 - action_send_ai_gen
 - utter_chitchat
+- utter_part_ask
+- utter_search_ask
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

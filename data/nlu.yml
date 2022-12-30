@@ -1034,6 +1034,7 @@ nlu:
     - search for [Built in tests](query)
     - search for [Detecting design intricacies that might lead to bugs](query)
     - search for [Developing Safety Critical Code](query)
+    - search for [calibrations](query)
 - intent: search_inform
   examples: |
     - [satellite](query)
@@ -1220,6 +1221,7 @@ nlu:
     - [Built in tests](query)
     - [Detecting design intricacies that might lead to bugs](query)
     - [Developing Safety Critical Code](query)
+    - [batteries](query)
 - intent: describe
   examples: |
     - what is [EPS](part)
@@ -1743,6 +1745,9 @@ nlu:
     - look up [cm](part)
     - look up [cnt_in](part)
     - look up [cnt_out](part)
+    - what is [COM](part)?
+    - lookup acronym
+    - lookup [ISS](part)
 - intent: describe_inform
   examples: |
     - [eps](part)
@@ -1920,34 +1925,41 @@ nlu:
     - [cm](part)
     - [cnt_in](part)
     - [cnt_out](part)
+    - [NASA](part)
+    - [NRO](part)
 - intent: gen_sat_faq
   examples: |
-    - [How do satellites stay in orbit]?(prompt)
-    - [How do satellites communicate with Earth]?(prompt)
-    - [How do satellites navigate in space]?(prompt)
-    - [How do satellites power themselves]?(prompt)
-    - [How do satellites transmit data]?(prompt)
-    - [How do satellites receive commands]?(prompt)
-    - [How do satellites avoid collision in space]?(prompt)
-    - [How do solar panels work]?(prompt)
-    - [How do epds systems work]?(prompt)
-    - [How do CMGs work]?(prompt)
-    - [How do CMGs work in satellites]?(prompt)
-    - [What are satellites made out of]?(prompt)
-    - [What materials are in satellite strutures]?(prompt)
-    - [How do satellites generate power]?(prompt)
-    - [How do satellites control their attitude]?(prompt)
-    - [How do satellites determine their attitude]?(prompt)
-    - [How do satellites determine their attitude rate]?(prompt)
-    - [What are some example satellite payloads]?(prompt)
-    - [How do satellites protect themselves]?(prompt)
-    - [How do satellites generate telemetry]?(prompt)
-    - [How do satellites change orbits]?(prompt)
+    - [How do satellites stay in orbit](prompt)?
+    - [How do satellites communicate with Earth](prompt)?
+    - [How do satellites navigate in space](prompt)?
+    - [How do satellites power themselves](prompt)?
+    - [How do satellites transmit data](prompt)?
+    - [How do satellites receive commands](prompt)?
+    - [How do satellites avoid collision in space](prompt)?
+    - [How do solar panels work](prompt)?
+    - [How do epds systems work](prompt)?
+    - [How do CMGs work](prompt)?
+    - [How do CMGs work in satellites](prompt)?
+    - [What are satellites made out of](prompt)?
+    - [What materials are in satellite strutures](prompt)?
+    - [How do satellites generate power](prompt)?
+    - [How do satellites control their attitude](prompt)?
+    - [How do satellites determine their attitude](prompt)?
+    - [How do satellites determine their attitude rate](prompt)?
+    - [What are some example satellite payloads](prompt)?
+    - [How do satellites protect themselves](prompt)?
+    - [How do satellites generate telemetry](prompt)?
+    - [How do satellites change orbits](prompt)?
     - [How does satellite propulsion work]?(prompt)
-    - [How do satellites stay in orbit]?(prompt)
-    - [What causes satellite debris]?(prompt)
-    - [How do satellites avoid debris]?(prompt)
+    - [What causes satellite debris](prompt)?
+    - [How do satellites avoid debris](prompt)?
+    - [How do satellites store energy](prompt)?
+    - [How do satellites fit inside rockets](prompt)?
+    - [How do satellites avoid collisions in space](prompt)?
+    - [How do satellites survive launch](prompt)?
 - intent: chitchat
   examples: |
     - hi
     - hello
+    - good night
+    - what's your name?
