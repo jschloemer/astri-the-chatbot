@@ -161,6 +161,7 @@ class ActionLookupPart(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
+        print("In Lookup Part")
         dispatcher.utter_message(text="Looking up part")
         
         part = tracker.get_slot('part')
@@ -182,8 +183,9 @@ class ActionLookupPart(Action):
             # Find the entity in the 'Acronym' column
             entity = part
 
+            # Wrap a try around the lookup in case the acronym is not found
             try:
-                # Return the item in the 'Item' column
+                # Return the item in the 'Acronym' column
                 item = df.loc[df['Acronym'] == entity.lower(), 'Description'].values[0]
 
                 #print(item)  # Output: 'Item 1'
