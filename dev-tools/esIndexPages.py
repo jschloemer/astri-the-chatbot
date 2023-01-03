@@ -6,13 +6,14 @@
 #!pip install elasticsearch requests
 
 # import the necessary modules:
-import elasticsearch
+from elasticsearch import Elasticsearch
 from bs4 import BeautifulSoup
+from datetime import datetime
 import requests
 import csv
 
 # Connect to the Elasticsearch cluster
-es = elasticsearch.Elasticsearch(['localhost'])
+es = Elasticsearch(hosts=['https://localhost:9200'], http_auth=('elastic', '-gduI5VLflBbyGt4ozD6'), verify_certs=False)
 
 # Check if the 'webpage' index exists
 if es.indices.exists(index='webpage'):
@@ -37,6 +38,7 @@ with open('example-data/upSatUrls.csv', 'r') as f:
         urls.append(url)
         
 # Iterate over the URLs
+id = 1
 for url in urls:
     # Retrieve the HTML from the URL
     r = requests.get(url)
@@ -49,5 +51,8 @@ for url in urls:
     text = soup.get_text()
     
     # Index the text content in Elasticsearch
-    es.index(index='webpage', doc_type='page', body={'text': text, 'url': url})
+    es.index(index='webpage', id=id, document={'text': text, 'url': url, 'timestamp': datetime.now()})
+    id = id + 1
+
+es.indices.refresh(index="webpage")
 

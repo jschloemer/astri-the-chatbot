@@ -1035,8 +1035,10 @@ nlu:
     - search for [Detecting design intricacies that might lead to bugs](query)
     - search for [Developing Safety Critical Code](query)
     - search for [calibrations](query)
+    - search for [NORAD ID](query)
 - intent: search_inform
   examples: |
+    - [NORAD ID](query)
     - [satellite](query)
     - [P-POD](query)
     - [CubeSat](query)

@@ -44,9 +44,13 @@ useElastic = False
 
 try:
     # Connect to the Elasticsearch instance
-    es = Elasticsearch(['localhost'])
-    useElastic = True
-    print("Elastic Connected")
+    es = Elasticsearch(hosts=['https://localhost:9200'], http_auth=('elastic', '-gduI5VLflBbyGt4ozD6'), verify_certs=False)
+    if es.indices.exists(index='webpage'):
+        print("Elastic Connected & Search Index Available")
+        useElastic = True
+    else:
+        print("Elastic Connected but no index exists")
+        useElastic = False
 except:
     # Handle connectivity issues
     useElastic = False
@@ -175,22 +179,80 @@ class ActionPerformSearch(Action):
         if(useElastic and queryPopulated):
         # Only entered if upfront items work
             if (project is None or project == ""):
-                results = es.search(index='webpage', body={'query': {'fuzzy': {'text': {'value': query, 'fuzziness': 2, 'analyzer': 'standard'}}}, 'sort': [{'_score': {'order': 'desc'}}], 'size': numberSearchResults})
-
-                # Not sure this works yet...
-                # Need to find the url
-                names = [doc['body']['url'] for doc in results['hits']['hits']]
+                query_body1 = {
+                    "match": {
+                        'text': {
+                            'query': query,
+                            'minimum_should_match': '100%'
+                        }
+                    }
+                }
+                
+                query_body2 = {
+                    "match": {
+                        'text': {
+                            'query': query,
+                        }
+                    }
+                }
+                
+                results1 = es.search(index='webpage', query=query_body1, sort= [{'_score': {'order': 'desc'}}], size=numberSearchResults)
                 
                 text = "Here's the top results:"
                 dispatcher.utter_message(text=text)
                 
-                if (names is None):
-                    text = "No results found."
-                    dispatcher.utter_message(text=text)
-                else:
-                    for name in names:
-                        text = "[" + name + "](" + name + ")"
+                #Parse results
+                names1 = [docu['_source']['url'] for docu in results1['hits']['hits']]
+                scores1 = [docu['_score'] for docu in results1['hits']['hits']]
+                i = 0
+                
+                if (names1 is None):
+                    # Try the other search
+                    results2 = es.search(index='webpage', query=query_body2, sort= [{'_score': {'order': 'desc'}}], size=numberSearchResults)
+                    
+                    #Parse results
+                    names2 = [docu['_source']['url'] for docu in results2['hits']['hits']]
+                    scores2 = [docu['_score'] for docu in results2['hits']['hits']]
+                    i = 0
+                    
+                    if (names2 is None):
+                        # Handle empty set
+                        text = "No Results Found."
                         dispatcher.utter_message(text=text)
+                    else:
+                        score2 = scores2[i]
+                        text = "[" + name + "](" + name + ") and score " + str(score2) + " - Partial Match"
+                        dispatcher.utter_message(text=text)
+                        i = i+1
+                else:
+                    for name in names1:
+                        score1 = scores1[i]
+                        text = "[" + name + "](" + name + ") and score " + str(score1) + " - Exact Match"
+                        dispatcher.utter_message(text=text)
+                        i = i+1
+                        
+                    if (i<numberSearchResults):
+                        # Didn't get three exact matches
+                        results2 = es.search(index='webpage', query=query_body2, sort= [{'_score': {'order': 'desc'}}], size=numberSearchResults)
+                        
+                        #Parse results
+                        names2 = [docu['_source']['url'] for docu in results2['hits']['hits']]
+                        scores2 = [docu['_score'] for docu in results2['hits']['hits']]
+                        i = 0
+                        
+                        if (names2 is None):
+                            text = "Only Select Results Found."
+                            dispatcher.utter_message(text=text)
+                        else:
+                            for name in names2:
+                                if (name in names1):
+                                    # Skip duplicate results
+                                    i = i + 1
+                                else:
+                                    score2 = scores2[i]
+                                    text = "[" + name + "](" + name + ") and score " + str(score2) + " - Partial Match"
+                                    dispatcher.utter_message(text=text)
+                                    i = i+1
             else:
                 # Project is populated
                 
