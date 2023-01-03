@@ -72,11 +72,15 @@ useopenai = ""
 if (key is None):
     useopenai = False
     print("WARN - No OPENAI API Key Found - All external queries will be stopped")
-else:    
-    openai.api_key = key
-    useopenai = True
-    print("Using OpenAI")
-useopenai = False
+else:
+    override = yamldata['use_openai']
+    if (override is None or override is True):
+        openai.api_key = key
+        useopenai = True
+        print("Using OpenAI")
+    else:
+        useopenai = False
+        print("WARN: Global override set, turning off OpenAI access")
 
 class ActionSendAIGen(Action):
     

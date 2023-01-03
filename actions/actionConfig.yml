@@ -1,8 +1,13 @@
 version: "1.0"
 
-## Open AI Key
+## Open AI Info
+
+# Open AI API Key
 # Live key
 openai_api_key: "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"
+
+# Open AI Use Override
+use_openai: True
 
 ## ElasticSearch Info
 # This is the index that the search goes out to in elastic. All indexed pages must be under this index.

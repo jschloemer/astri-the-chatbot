@@ -40,6 +40,7 @@ services:
     image: rasa/rasa-sdk:1.9.0
     volumes:
       - ./actions:/app/actions
+      - ./index:/app/index
     ports:
       - "5055:5055" 
     depends_on:
