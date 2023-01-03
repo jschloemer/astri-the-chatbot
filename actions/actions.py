@@ -4,24 +4,29 @@
 # See this guide on how to implement these action:
 # https://rasa.com/docs/rasa/custom-actions
 
-
-# This is a simple example for a custom action which utters "Hello World!"
-
+# Rasa SDK Items
 from typing import Any, Text, Dict, List
-
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import AllSlotsReset
 from rasa_sdk.events import SlotSet
 
-# Search Items
+# Action Server Config Items
+import yaml
 
+# Search Items
 from elasticsearch import Elasticsearch
 import openai
-import os
 
 # Part Items
 import pandas as pd
+
+try:
+    with open('actions/actionConfig.yml', 'r') as f:
+        yamldata = yaml.safe_load(f)
+except:
+    print('WARN - Error loading the configuration file')
+    exit()
 
 # Setup the part data
 useacronyms = False
@@ -39,13 +44,17 @@ except:
     print("WARN - No Acronym Data Found")
     
 # Setup Search
-numberSearchResults = 3
+numberSearchResults = yamldata['num_search_results']
 useElastic = False
+yamlindex = yamldata['index_name']
+elastic_host = yamldata['elastic_host']
+elastic_user = yamldata['elastic_user']
+elastic_pw = yamldata['elastic_password']
 
 try:
     # Connect to the Elasticsearch instance
-    es = Elasticsearch(hosts=['https://localhost:9200'], http_auth=('elastic', '-gduI5VLflBbyGt4ozD6'), verify_certs=False)
-    if es.indices.exists(index='webpage'):
+    es = Elasticsearch(hosts=[elastic_host], http_auth=(elastic_user, elastic_pw), verify_certs=False)
+    if es.indices.exists(index=yamlindex):
         print("Elastic Connected & Search Index Available")
         useElastic = True
     else:
@@ -58,7 +67,7 @@ except:
 
 # Setup for openai access
 ## If not setup, set global boolean to prevent errors
-key = os.getenv("OPENAI_API_KEY")
+key = yamldata['openai_api_key']
 useopenai = ""
 if (key is None):
     useopenai = False
@@ -196,7 +205,7 @@ class ActionPerformSearch(Action):
                     }
                 }
                 
-                results1 = es.search(index='webpage', query=query_body1, sort= [{'_score': {'order': 'desc'}}], size=numberSearchResults)
+                results1 = es.search(index=yamlindex, query=query_body1, sort= [{'_score': {'order': 'desc'}}], size=numberSearchResults)
                 
                 text = "Here's the top results:"
                 dispatcher.utter_message(text=text)
@@ -208,7 +217,7 @@ class ActionPerformSearch(Action):
                 
                 if (names1 is None):
                     # Try the other search
-                    results2 = es.search(index='webpage', query=query_body2, sort= [{'_score': {'order': 'desc'}}], size=numberSearchResults)
+                    results2 = es.search(index=yamlindex, query=query_body2, sort= [{'_score': {'order': 'desc'}}], size=numberSearchResults)
                     
                     #Parse results
                     names2 = [docu['_source']['url'] for docu in results2['hits']['hits']]
@@ -233,7 +242,7 @@ class ActionPerformSearch(Action):
                         
                     if (i<numberSearchResults):
                         # Didn't get three exact matches
-                        results2 = es.search(index='webpage', query=query_body2, sort= [{'_score': {'order': 'desc'}}], size=numberSearchResults)
+                        results2 = es.search(index=yamlindex, query=query_body2, sort= [{'_score': {'order': 'desc'}}], size=numberSearchResults)
                         
                         #Parse results
                         names2 = [docu['_source']['url'] for docu in results2['hits']['hits']]

@@ -1,0 +1,49 @@
+version: "3.0"
+services:
+  elasticsearch:
+    container_name: es-node1
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.5.3
+    networks:
+      - es-net
+    ports:
+      - 9200:9200
+      - 9300:9300
+  kibana:
+    container_name: kib01
+    image: docker.elastic.co/kibana/kibana:8.5.3
+    environment:
+      - ELASTICSEARCH_HOSTS=https://localhost:9200
+    networks:
+      - es-net
+    depends_on:
+      - elasticsearch
+    ports:
+      - 5601:5601
+  rasa:
+    container_name: rasa-server
+    image: rasa/rasa:3.4.0
+    ports:
+      - 5005:5005
+    volumes:
+      - ./:/app
+    command:
+      - run
+      - --cors
+      - "*"
+      - --enable-api
+      - --log-file
+      - out.log
+    depends_on:
+      - action-server
+  action-server:
+    container_name: rasa-action-server
+    image: rasa/rasa-sdk:1.9.0
+    volumes:
+      - ./actions:/app/actions
+    ports:
+      - "5055:5055" 
+    depends_on:
+      - elasticsearch
+networks:
+  es-net:
+    driver: bridge

@@ -1,0 +1,22 @@
+version: "1.0"
+
+## Open AI Key
+# Live key
+openai_api_key: "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"
+
+## ElasticSearch Info
+# This is the index that the search goes out to in elastic. All indexed pages must be under this index.
+index_name: "webpage"
+
+elastic_host: "https://localhost:9200"
+elastic_user: "elastic"
+elastic_password: "-gduI5VLflBbyGt4ozD6"
+
+# This is the number of results the bot will return on search
+num_search_results: 3
+
+# These are the projects inside of the search
+# Doesn't work yet...
+projects:
+  - name: Public
+  - name: Thesis

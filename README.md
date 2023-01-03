@@ -13,7 +13,7 @@ Spacy requires a small package to be downloaded using the command.
 
 ## OpenAI Instructions
 
-The user must have an openAI account to use the openAI features. Specifically, the API key needs to be generated from the website and stored for local use in an environment variable called OPENAI_API_KEY
+The user must have an openAI account to use the openAI features. Specifically, the API key needs to be generated from the website and stored in the actionConfig.yml file
 
 ## Running the server
 

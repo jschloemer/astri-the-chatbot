@@ -1750,6 +1750,18 @@ nlu:
     - lookup acronym
     - lookup [ISS](part)
     - lookup acronym [NASA](part)
+    - lookup acronym [NOAA](part)
+    - lookup acronym [NOAO](part)
+    - lookup acronym [NORAD](part)
+    - lookup acronym [NRAO](part)
+    - lookup acronym [NRO](part)
+    - lookup acronym [NS](part)
+    - lookup acronym [NSA](part)
+    - lookup acronym [NSF](part)
+    - lookup acronym [NSO](part)
+    - lookup acronym [NSSDC](part)
+    - lookup acronym [NTR](part)
+    - lookup acronym [NTT](part)
 - intent: describe_inform
   examples: |
     - [eps](part)
@@ -1929,7 +1941,25 @@ nlu:
     - [cnt_out](part)
     - [NASA](part)
     - [NRO](part)
-    - [NASA](part)
+    - [NLDP](part)
+    - [NOAA](part)
+    - [NOAO](part)
+    - [NORAD](part)
+    - [NRAO](part)
+    - [NRO](part)
+    - [NS](part)
+    - [NSA](part)
+    - [NSF](part)
+    - [NSO](part)
+    - [NSSDC](part)
+    - [NTR](part)
+    - [NTT](part)
+    - [YSO](part)
+    - [YAML](part)
+    - [YTTR](part)
+    - [YPS](part)
+    - [YSO](part)
+    - [YARL](part)
 - intent: gen_sat_faq
   examples: |
     - [How do satellites stay in orbit](prompt)?
@@ -1985,7 +2015,8 @@ nlu:
     - [What do satellites use to remove heat](prompt)?
     - [How do radiators work](prompt)?
     - [What is the difference between 2-axis and 3-axis stablized satellites](prompt)?
-
+    - [How can ai tools improve the aerospace industry](prompt)?
+    - [How can chatbots make aerospace work more efficient](prompt)?
 - intent: chitchat
   examples: |
     - hi
