@@ -67,7 +67,7 @@ except:
 
 # Setup for openai access
 ## If not setup, set global boolean to prevent errors
-key = yamldata['openai_api_key']
+key = str(yamldata['openai_api_key']).strip()
 useopenai = ""
 if (key is None):
     useopenai = False
