@@ -13,7 +13,7 @@ use_openai: True
 # This is the index that the search goes out to in elastic. All indexed pages must be under this index.
 index_name: "webpage"
 
-elastic_host: "https://localhost:9200"
+elastic_host: "https://es-node01:9200"
 elastic_user: "elastic"
 elastic_password: "-gduI5VLflBbyGt4ozD6"
 

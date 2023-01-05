@@ -9,6 +9,8 @@ __pycache__/
 # Rasa Items
 models/
 .rasa/
+.config/
+.keras/
 
 # Distribution / packaging
 .Python

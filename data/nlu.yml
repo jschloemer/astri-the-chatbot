@@ -1036,8 +1036,10 @@ nlu:
     - search for [Developing Safety Critical Code](query)
     - search for [calibrations](query)
     - search for [NORAD ID](query)
+    - search for [power card](query)
 - intent: search_inform
   examples: |
+    - [power card](query)
     - [NORAD ID](query)
     - [satellite](query)
     - [P-POD](query)
@@ -2001,8 +2003,8 @@ nlu:
     - [How do IRUs work](prompt)?
     - [How do computers protect themselves from radiation in space](prompt)?
     - [What do satellites use as propellant](prompt)?
-    - [How does hydrazene work as a propellant](prompt)?
-    - [Why do satellites use hydrazene as a propellant](prompt)?
+    - [How does hydrizene work as a propellant](prompt)?
+    - [Why do satellites use hydrizene as a propellant](prompt)?
     - [Why are computers in space so slow](prompt)?
     - [What is the difference between CMGs and reaction wheels](prompt)?
     - [What is Ka-Band](prompt)?
