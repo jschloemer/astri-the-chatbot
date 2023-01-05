@@ -17,6 +17,7 @@ The user must have an openAI account to use the openAI features. Specifically, t
 
 ## Running the server
 
+    rasa train
     rasa run -m models --enable-api --cors "*"
     rasa run actions
 
