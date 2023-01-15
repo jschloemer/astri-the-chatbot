@@ -4,7 +4,7 @@ version: "1.0"
 
 # Open AI API Key
 # Live key
-openai_api_key: "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"
+openai_api_key: ""
 
 # Open AI Use Override
 use_openai: True
