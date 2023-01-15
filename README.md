@@ -41,6 +41,18 @@ Pause - startup of Elastic for the first time creates user id and passwords that
     docker run -v $(pwd):/app --name astri-nlu -p 5005:5005 --net elastic rasa/rasa:3.4.0-full run -m models --enable-api --cors "*"
     docker run --name astri-act -p 5055:5055 -v $(pwd)/actions:/app/actions -v $(pwd)/index:/app/index --net elastic rasa/rasa-sdk:3.4.0
 
+## For Apple Silicon Macs
+
+Since Rasa does not offer arm64 docker images, new ones need to be built from the arm64 Python base image. Two custom Dockerfiles are included to build these images.
+
+    docker build -f Dockerfile_nlu_arm64 -t astri_nlu:1.0 .
+    docker build -f Dockerfile_act_arm64 -t astri_act:1.0 .
+
+The docker run commands after then break out as follows:
+
+    docker run -v $(pwd):/app --name astri-nlu -p 5005:5005 --net elastic astri_nlu:1.0 run -m models --enable-api --cors "*"
+    docker run --name astri-act -p 5055:5055 -v $(pwd)/actions:/app/actions -v $(pwd)/index:/app/index --net elastic astri_act:1.0
+
 ## Setup Elastic
 
 When starting the first time, Elasticsearch has a set of startup instruction that need to be followed. See this site for instructions for startup: [https://www.elastic.co/guide/en/elasticsearch/reference/8.5/docker.html](https://www.elastic.co/guide/en/elasticsearch/reference/8.5/docker.html)
