@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+# Mac items
+.DS_Store
+
 # Rasa Items
 models/
 .rasa/

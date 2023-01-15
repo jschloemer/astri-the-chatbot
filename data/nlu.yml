@@ -1084,6 +1084,7 @@ nlu:
     - find [digital RSSI and carrier sense indicator](query)
     - find [data rate up to 153.6 kBaud](query)
     - find [programmable operation frequency and AFC may easily handle temperature and Doppler frequency shifts](query)
+    - search [lockheed martin](query)
 - intent: search_inform
   examples: |
     - [true single chip UHF RF transceiver](query)
