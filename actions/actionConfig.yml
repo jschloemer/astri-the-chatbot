@@ -14,8 +14,6 @@ use_openai: True
 index_name: "webpage"
 
 elastic_host: "https://es-node01:9200"
-elastic_user: "elastic"
-elastic_password: "-gduI5VLflBbyGt4ozD6"
 
 # This is the number of results the bot will return on search
 num_search_results: 3
