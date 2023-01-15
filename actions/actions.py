@@ -27,6 +27,13 @@ try:
 except:
     print('WARN - Error loading the configuration file')
     exit()
+    
+try:
+    with open('actions/actionSecrets.yml', 'r') as f:
+        yamlsecrets = yaml.safe_load(f)
+except:
+    print('WARN - Error loading the secrets file')
+    exit()
 
 # Setup the part data
 useacronyms = False
@@ -48,8 +55,8 @@ numberSearchResults = yamldata['num_search_results']
 useElastic = False
 yamlindex = yamldata['index_name']
 elastic_host = yamldata['elastic_host']
-elastic_user = yamldata['elastic_user']
-elastic_pw = yamldata['elastic_password']
+elastic_user = yamlsecrets['elastic_user']
+elastic_pw = yamlsecrets['elastic_password']
 
 try:
     # Connect to the Elasticsearch instance
@@ -67,7 +74,7 @@ except:
 
 # Setup for openai access
 ## If not setup, set global boolean to prevent errors
-key = str(yamldata['openai_api_key']).strip()
+key = str(yamlsecrets['openai_api_key']).strip()
 useopenai = ""
 if (key is None):
     useopenai = False
