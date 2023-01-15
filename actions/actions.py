@@ -332,3 +332,5 @@ class ActionLookupPart(Action):
             dispatcher.utter_message(text=text)
         
         return []
+
+
