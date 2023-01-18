@@ -24,4 +24,4 @@ RUN pip install --no-cache-dir rasa[full]
 # Switch back to non-root to run code
 USER 1001
 
-CMD ["rasa"]
+ENTRYPOINT ["rasa"]
