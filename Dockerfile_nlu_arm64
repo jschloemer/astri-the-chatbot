@@ -1,11 +1,11 @@
 # Extend the python 3.9 image
 FROM python:3.9
 
-#Use subdirectory as working directory
-WORKDIR /app
-
 # Change back to root user to install dependencies
 USER root
+
+#Use subdirectory as working directory
+WORKDIR /app
 
 #COPY requirements.txt ./
 #COPY ./actions /app/actions
