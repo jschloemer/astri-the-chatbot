@@ -43,6 +43,8 @@ Pause - startup of Elastic for the first time creates user id and passwords that
 
 ## For Apple Silicon Macs
 
+### Beta steps only...
+
 Since Rasa does not offer arm64 docker images, new ones need to be built from the arm64 Python base image. Two custom Dockerfiles are included to build these images.
 
     docker build -f Dockerfile_nlu_arm64 -t astri_nlu:1.0 .
@@ -60,3 +62,20 @@ When starting the first time, Elasticsearch has a set of startup instruction tha
 ## Populate the search index
 
 In dev-tools, there is a script that parses through a list of URLs for text to create the index. You can also use your own index or scrapper to populate the Elasticsearch data
+
+# Dev tools use
+
+## textProcessing.py
+
+This tool can take a webpage, pdf or text file and generate some program unique data for Astri use.
+
+    python textprocessing.py (inputData)
+
+Note that this tool uses nltk data and the following items need to be installed
+
+    python -m nltk.downloader stopwords
+    python -m nltk.downloader punkt
+
+If you are having SSL issues connecting to nltk (replace X with your versio of Python)
+
+    bash /Applications/Python 3.X/Install Certificates.command
