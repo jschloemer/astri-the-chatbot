@@ -104,8 +104,8 @@ def find_interesting(sentences):
     
     max_score = 0        
     for opt in paras:
-        print(opt)
-        print("==")
+        #print(opt)
+        #print("==")
         tokens = nltk.word_tokenize(opt)
         flesch = flesch_reading_score(opt)
         text = TextBlob(opt)
@@ -142,7 +142,7 @@ def question_sentence(para):
                     presence_penalty=0.0,
                     stop=[fin]
                 )
-        print(response)
+        if debug: print(response)
         airesponse = response['choices'][0]['text']
         # Open a text file to write the data to
         with open('question_list.txt', 'w') as txt_file:
