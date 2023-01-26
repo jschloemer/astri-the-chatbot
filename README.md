@@ -75,6 +75,7 @@ Note that this tool uses nltk data and the following items need to be installed
 
     python -m nltk.downloader stopwords
     python -m nltk.downloader punkt
+    python -m nltk.downloader averaged_perceptron_tagger
 
 If you are having SSL issues connecting to nltk (replace X with your versio of Python)
 
