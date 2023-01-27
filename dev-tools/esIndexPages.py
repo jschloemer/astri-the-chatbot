@@ -13,7 +13,7 @@ import requests
 import csv
 
 # Connect to the Elasticsearch cluster
-es = Elasticsearch(hosts=['https://localhost:9200'], http_auth=('elastic', '-gduI5VLflBbyGt4ozD6'), verify_certs=False)
+es = Elasticsearch(hosts=['https://localhost:9200'], http_auth=('elastic', 'flEEXqD=ZnsHGIh2KaK0'), verify_certs=False)
 
 # Check if the 'webpage' index exists
 if es.indices.exists(index='webpage'):
