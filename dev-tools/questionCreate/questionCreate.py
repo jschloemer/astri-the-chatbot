@@ -3,7 +3,7 @@
 # Author: Jeff Schloemer
 # Date: 01/25/2023
 
-# pip install openai requests PyPDF2 bs4 nltk textstat textblob
+# pip install openai requests bs4 PyPDF2  nltk textstat textblob
 
 import argparse
 import requests
