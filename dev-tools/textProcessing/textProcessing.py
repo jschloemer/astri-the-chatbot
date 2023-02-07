@@ -212,7 +212,7 @@ def create_NLU(sentences):
         text = text + "\n" + "  - action: utter_search_ask"
         text = text + "\n" + "  - user: |"
         text = text + "\n" + "      " + query
-        text = text + "\n" + "  - intent: search_inform"
+        text = text + "\n" + "    intent: search_inform"
         text = text + "\n" + "  - action: action_perform_search"
         text = text + "\n" + "  - action: action_reset_search_slot"
         text = text + "\n"

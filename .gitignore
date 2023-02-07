@@ -16,6 +16,7 @@ models/
 .keras/
 actions/*Secrets*
 dev-tools/*/*txt
+results/
 
 # Distribution / packaging
 .Python
