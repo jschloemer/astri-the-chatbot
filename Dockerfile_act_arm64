@@ -6,6 +6,7 @@ USER root
 
 #Use subdirectory as working directory
 WORKDIR /app
+
 #COPY requirements.txt ./
 #COPY ./actions /app/actions
 #COPY ./index /app/index
@@ -24,4 +25,4 @@ RUN pip install --no-cache-dir pandas openai elasticsearch PyYAML rasa-sdk
 # Switch back to non-root to run code
 USER 1001
 
-CMD ["rasa"]
+ENTRYPOINT ["rasa"]
