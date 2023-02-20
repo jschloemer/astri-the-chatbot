@@ -2649,7 +2649,7 @@ nlu:
     - [Storing housekeeping](query)
     - [task FreeRTOS](query)
     - [one](query)
-    - [bytes -](query)
+    - [bytes](query)
     - [Nicolas](query)
     - [providing different tick resolutions](query)
     - [according](query)
